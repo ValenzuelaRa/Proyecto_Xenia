@@ -1,9 +1,11 @@
-"usa el cliente"
+"use client"
+// App.js
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
+import { View, Text, ScrollView, Image, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { Camera } from 'expo-camera';
-import { Picker } from '@react-native-picker/picker';
 import axios from 'axios';
+import Formulario from './components/Formulario';
+import CamaraScanner from './components/CamaraScanner';
 import styles from './components/styles';
 
 const App = () => {
@@ -26,7 +28,7 @@ const App = () => {
       establecerPermiso(status === 'granted');
     })();
   }, []);
-  
+
   useEffect(() => {
     obtenerCarreras();
   }, []);
@@ -85,7 +87,7 @@ const App = () => {
       console.error('Error al enviar el formulario:', error);
       Alert.alert('Error interno del servidor');
     }
-  }
+  };
 
   if (tienePermiso === null) {
     return <View />;
@@ -97,68 +99,32 @@ const App = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.contenedor}>
-      <View styles={styles.contenedorFormulario}>
-        <Image 
+      <View style={styles.contenedorFormulario}>
+        <Image
           source={require('./assets/logo-ensenada.png')} // Ajusta la ruta según la ubicación de tu logo
           style={styles.logo}
         />
         <Text style={styles.tituloFormulario}>Registro de Asistencia</Text>
-        <TextInput
-          style={styles.entrada}
-          placeholder="Matricula"
-          value={formularioDatos.input1}
-          onChangeText={(texto) => manejarCambioEntrada('input1', texto)}
+        <Formulario
+          formularioDatos={formularioDatos}
+          manejarCambioEntrada={manejarCambioEntrada}
+          carreras={carreras}
+          carreraSeleccionada={carreraSeleccionada}
+          establecerCarreraSeleccionada={establecerCarreraSeleccionada}
         />
-        <TextInput
-          style={styles.entrada}
-          placeholder="Nombre"
-          value={formularioDatos.input2}
-          onChangeText={(texto) => manejarCambioEntrada('input2', texto)}
+        <CamaraScanner
+          referenciaCamara={referenciaCamara}
+          manejarEscaneoCodigoBarras={manejarEscaneoCodigoBarras}
+          manejarEnfoque={manejarEnfoque}
         />
-        <TextInput
-          style={styles.entrada}
-          placeholder="Grupo"
-          value={formularioDatos.input3}
-          onChangeText={(texto) => manejarCambioEntrada('input3', texto)}
-        />
-        <TextInput
-          style={styles.entrada}
-          placeholder="Materia"
-          value={formularioDatos.input4}
-          onChangeText={(texto) => manejarCambioEntrada('input4', texto)}
-        />
-        <Picker
-          style={styles.selector}
-          selectedValue={carreraSeleccionada}
-          onValueChange={(valorItem, indiceItem) => establecerCarreraSeleccionada(valorItem)}
-        >
-          <Picker.Item label="Selecciona una carrera" value={null} />
-          {carreras.map((carrera) => (
-            <Picker.Item key={carrera.id} label={carrera.nombre} value={carrera.id} />
-          ))}
-        </Picker>
-
-        <View style={styles.contenedorCamara}>
-          <Camera
-            style={styles.camara}
-            onBarCodeScanned={manejarEscaneoCodigoBarras}
-            ref={referenciaCamara}
-          >
-            <View style={styles.marcoQr} onTouchStart={manejarEnfoque} />
-          </Camera>
-        </View>
         {datosQr && (
           <View style={styles.contenedorQr}>
             <Text>Código QR leído:</Text>
-            <TextInput
-              style={styles.entradaQr}
-              value={datosQr}
-              editable={false}
-            />
+            <TextInput style={styles.entradaQr} value={datosQr} editable={false} />
             <TouchableOpacity onPress={manejarRepetirEscaneo} style={styles.boton}>
               <Text>Repetir Escaneo</Text>
             </TouchableOpacity>
-          </View>
+            </View>
         )}
         <TouchableOpacity onPress={manejarEnvio} style={styles.boton}>
           <Text>Enviar</Text>
@@ -167,4 +133,5 @@ const App = () => {
     </ScrollView>
   );
 };
+
 export default App;
