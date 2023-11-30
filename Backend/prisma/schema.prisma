@@ -18,3 +18,13 @@ model Carrera {
   id    Int    @id @default(autoincrement())
   nombre String
 }
+model Registro {
+  id                Int       @id @default(autoincrement())
+  matricula         String
+  nombre            String
+  grupo             String
+  materia           String
+  carrera           String   // Cambiado a String en lugar de Int
+  nombreLaboratorio String
+  createdAt         DateTime  @default(now())
+}

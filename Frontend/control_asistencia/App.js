@@ -61,12 +61,29 @@ const App = () => {
       });
     }
   };
-  const handleSubmit = () => {
-    // Implement your logic for form submission using formData, selectedCarrera, and qrData
-    // You can send this data to your server using axios.post, for example.
-    // For demonstration purposes, an alert is shown here.
-    Alert.alert('Form Submitted!', JSON.stringify({ formData, selectedCarrera, qrData }));
-  };
+
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('http://192.168.100.15:3000/guardarInformacion', {
+        matricula: formData.input1,
+        nombre: formData.input2,
+        grupo: formData.input3,
+        materia: formData.input4,
+        carrera: selectedCarrera,
+        nombre_laboratorio: qrData,
+      });
+
+      if (response.data.success) {
+        Alert.alert('Formulario enviado correctamente');
+      } else {
+        Alert.alert('Error al enviar el formulario');
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      Alert.alert('Error interno del servidor');
+    }
+  }
+
 
   if (hasPermission === null) {
     return <View />;

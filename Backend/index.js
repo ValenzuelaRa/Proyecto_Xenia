@@ -1,6 +1,6 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
-const cors = require('cors');  // Importa el paquete CORS
+const cors = require('cors');
 const app = express();
 const prisma = new PrismaClient();
 
@@ -23,19 +23,44 @@ app.get('/laboratorios', async (req, res) => {
   }
 });
 
-
 app.get('/carrera', async (req, res) => {
-    try {
-      console.log('Consultando carreras...');
-      const carreras = await prisma.carrera.findMany();
-      console.log('Carreras recuperadas:', carreras);
-      res.json(carreras);
-    } catch (error) {
-      console.error('Error al recuperar carreras:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  });
-  
+  try {
+    console.log('Consultando carreras...');
+    const carreras = await prisma.carrera.findMany();
+    console.log('Carreras recuperadas:', carreras);
+    res.json(carreras);
+  } catch (error) {
+    console.error('Error al recuperar carreras:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.post('/guardarInformacion', async (req, res) => {
+  try {
+    const { matricula, nombre, grupo, materia, carrera, nombre_laboratorio } = req.body;
+
+    console.log('Guardando información en la base de datos...');
+
+    await prisma.registro.create({
+      data: {
+        matricula,
+        nombre,
+        grupo,
+        materia,
+        carrera: String(carrera), // Convertir a cadena
+        nombreLaboratorio: nombre_laboratorio,
+      },
+    });
+
+    console.log('Información guardada correctamente');
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error('Error al guardar información en la base de datos:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3000;
