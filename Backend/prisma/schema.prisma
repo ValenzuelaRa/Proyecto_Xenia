@@ -1,0 +1,20 @@
+// schema.prisma
+generator client {
+    provider = "prisma-client-js"
+    // Elimina la línea previewFeatures o usa una función de vista previa válida
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Laboratorio {
+  id    Int    @id @default(autoincrement())
+  nombre String
+}
+
+model Carrera {
+  id    Int    @id @default(autoincrement())
+  nombre String
+}

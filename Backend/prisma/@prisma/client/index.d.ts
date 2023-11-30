@@ -14,15 +14,15 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Laboratorios
+ * Model Laboratorio
  * 
  */
-export type Laboratorios = $Result.DefaultSelection<Prisma.$LaboratoriosPayload>
+export type Laboratorio = $Result.DefaultSelection<Prisma.$LaboratorioPayload>
 /**
- * Model Carreras
+ * Model Carrera
  * 
  */
-export type Carreras = $Result.DefaultSelection<Prisma.$CarrerasPayload>
+export type Carrera = $Result.DefaultSelection<Prisma.$CarreraPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -32,7 +32,7 @@ export type Carreras = $Result.DefaultSelection<Prisma.$CarrerasPayload>
  * ```
  * const prisma = new PrismaClient()
  * // Fetch zero or more Laboratorios
- * const laboratorios = await prisma.laboratorios.findMany()
+ * const laboratorios = await prisma.laboratorio.findMany()
  * ```
  *
  * 
@@ -53,7 +53,7 @@ export class PrismaClient<
    * ```
    * const prisma = new PrismaClient()
    * // Fetch zero or more Laboratorios
-   * const laboratorios = await prisma.laboratorios.findMany()
+   * const laboratorios = await prisma.laboratorio.findMany()
    * ```
    *
    * 
@@ -147,24 +147,24 @@ export class PrismaClient<
   $extends: $Extensions.ExtendsHook<'extends', Prisma.TypeMapCb, ExtArgs>
 
       /**
-   * `prisma.laboratorios`: Exposes CRUD operations for the **Laboratorios** model.
+   * `prisma.laboratorio`: Exposes CRUD operations for the **Laboratorio** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Laboratorios
-    * const laboratorios = await prisma.laboratorios.findMany()
+    * const laboratorios = await prisma.laboratorio.findMany()
     * ```
     */
-  get laboratorios(): Prisma.LaboratoriosDelegate<ExtArgs>;
+  get laboratorio(): Prisma.LaboratorioDelegate<ExtArgs>;
 
   /**
-   * `prisma.carreras`: Exposes CRUD operations for the **Carreras** model.
+   * `prisma.carrera`: Exposes CRUD operations for the **Carrera** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Carreras
-    * const carreras = await prisma.carreras.findMany()
+    * const carreras = await prisma.carrera.findMany()
     * ```
     */
-  get carreras(): Prisma.CarrerasDelegate<ExtArgs>;
+  get carrera(): Prisma.CarreraDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -635,8 +635,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Laboratorios: 'Laboratorios',
-    Carreras: 'Carreras'
+    Laboratorio: 'Laboratorio',
+    Carrera: 'Carrera'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -653,139 +653,139 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'laboratorios' | 'carreras'
+      modelProps: 'laboratorio' | 'carrera'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
-      Laboratorios: {
-        payload: Prisma.$LaboratoriosPayload<ExtArgs>
-        fields: Prisma.LaboratoriosFieldRefs
+      Laboratorio: {
+        payload: Prisma.$LaboratorioPayload<ExtArgs>
+        fields: Prisma.LaboratorioFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.LaboratoriosFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload> | null
+            args: Prisma.LaboratorioFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.LaboratoriosFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload>
+            args: Prisma.LaboratorioFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload>
           }
           findFirst: {
-            args: Prisma.LaboratoriosFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload> | null
+            args: Prisma.LaboratorioFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.LaboratoriosFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload>
+            args: Prisma.LaboratorioFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload>
           }
           findMany: {
-            args: Prisma.LaboratoriosFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload>[]
+            args: Prisma.LaboratorioFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload>[]
           }
           create: {
-            args: Prisma.LaboratoriosCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload>
+            args: Prisma.LaboratorioCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload>
           }
           createMany: {
-            args: Prisma.LaboratoriosCreateManyArgs<ExtArgs>,
+            args: Prisma.LaboratorioCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.LaboratoriosDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload>
+            args: Prisma.LaboratorioDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload>
           }
           update: {
-            args: Prisma.LaboratoriosUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload>
+            args: Prisma.LaboratorioUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload>
           }
           deleteMany: {
-            args: Prisma.LaboratoriosDeleteManyArgs<ExtArgs>,
+            args: Prisma.LaboratorioDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.LaboratoriosUpdateManyArgs<ExtArgs>,
+            args: Prisma.LaboratorioUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.LaboratoriosUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$LaboratoriosPayload>
+            args: Prisma.LaboratorioUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$LaboratorioPayload>
           }
           aggregate: {
-            args: Prisma.LaboratoriosAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateLaboratorios>
+            args: Prisma.LaboratorioAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateLaboratorio>
           }
           groupBy: {
-            args: Prisma.LaboratoriosGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<LaboratoriosGroupByOutputType>[]
+            args: Prisma.LaboratorioGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<LaboratorioGroupByOutputType>[]
           }
           count: {
-            args: Prisma.LaboratoriosCountArgs<ExtArgs>,
-            result: $Utils.Optional<LaboratoriosCountAggregateOutputType> | number
+            args: Prisma.LaboratorioCountArgs<ExtArgs>,
+            result: $Utils.Optional<LaboratorioCountAggregateOutputType> | number
           }
         }
       }
-      Carreras: {
-        payload: Prisma.$CarrerasPayload<ExtArgs>
-        fields: Prisma.CarrerasFieldRefs
+      Carrera: {
+        payload: Prisma.$CarreraPayload<ExtArgs>
+        fields: Prisma.CarreraFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CarrerasFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload> | null
+            args: Prisma.CarreraFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CarrerasFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload>
+            args: Prisma.CarreraFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload>
           }
           findFirst: {
-            args: Prisma.CarrerasFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload> | null
+            args: Prisma.CarreraFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CarrerasFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload>
+            args: Prisma.CarreraFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload>
           }
           findMany: {
-            args: Prisma.CarrerasFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload>[]
+            args: Prisma.CarreraFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload>[]
           }
           create: {
-            args: Prisma.CarrerasCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload>
+            args: Prisma.CarreraCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload>
           }
           createMany: {
-            args: Prisma.CarrerasCreateManyArgs<ExtArgs>,
+            args: Prisma.CarreraCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.CarrerasDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload>
+            args: Prisma.CarreraDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload>
           }
           update: {
-            args: Prisma.CarrerasUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload>
+            args: Prisma.CarreraUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload>
           }
           deleteMany: {
-            args: Prisma.CarrerasDeleteManyArgs<ExtArgs>,
+            args: Prisma.CarreraDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.CarrerasUpdateManyArgs<ExtArgs>,
+            args: Prisma.CarreraUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.CarrerasUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$CarrerasPayload>
+            args: Prisma.CarreraUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$CarreraPayload>
           }
           aggregate: {
-            args: Prisma.CarrerasAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateCarreras>
+            args: Prisma.CarreraAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateCarrera>
           }
           groupBy: {
-            args: Prisma.CarrerasGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<CarrerasGroupByOutputType>[]
+            args: Prisma.CarreraGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<CarreraGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CarrerasCountArgs<ExtArgs>,
-            result: $Utils.Optional<CarrerasCountAggregateOutputType> | number
+            args: Prisma.CarreraCountArgs<ExtArgs>,
+            result: $Utils.Optional<CarreraCountAggregateOutputType> | number
           }
         }
       }
@@ -939,83 +939,83 @@ export namespace Prisma {
    */
 
   /**
-   * Model Laboratorios
+   * Model Laboratorio
    */
 
-  export type AggregateLaboratorios = {
-    _count: LaboratoriosCountAggregateOutputType | null
-    _avg: LaboratoriosAvgAggregateOutputType | null
-    _sum: LaboratoriosSumAggregateOutputType | null
-    _min: LaboratoriosMinAggregateOutputType | null
-    _max: LaboratoriosMaxAggregateOutputType | null
+  export type AggregateLaboratorio = {
+    _count: LaboratorioCountAggregateOutputType | null
+    _avg: LaboratorioAvgAggregateOutputType | null
+    _sum: LaboratorioSumAggregateOutputType | null
+    _min: LaboratorioMinAggregateOutputType | null
+    _max: LaboratorioMaxAggregateOutputType | null
   }
 
-  export type LaboratoriosAvgAggregateOutputType = {
+  export type LaboratorioAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type LaboratoriosSumAggregateOutputType = {
+  export type LaboratorioSumAggregateOutputType = {
     id: number | null
   }
 
-  export type LaboratoriosMinAggregateOutputType = {
-    id: number | null
-    nombre: string | null
-  }
-
-  export type LaboratoriosMaxAggregateOutputType = {
+  export type LaboratorioMinAggregateOutputType = {
     id: number | null
     nombre: string | null
   }
 
-  export type LaboratoriosCountAggregateOutputType = {
+  export type LaboratorioMaxAggregateOutputType = {
+    id: number | null
+    nombre: string | null
+  }
+
+  export type LaboratorioCountAggregateOutputType = {
     id: number
     nombre: number
     _all: number
   }
 
 
-  export type LaboratoriosAvgAggregateInputType = {
+  export type LaboratorioAvgAggregateInputType = {
     id?: true
   }
 
-  export type LaboratoriosSumAggregateInputType = {
+  export type LaboratorioSumAggregateInputType = {
     id?: true
   }
 
-  export type LaboratoriosMinAggregateInputType = {
-    id?: true
-    nombre?: true
-  }
-
-  export type LaboratoriosMaxAggregateInputType = {
+  export type LaboratorioMinAggregateInputType = {
     id?: true
     nombre?: true
   }
 
-  export type LaboratoriosCountAggregateInputType = {
+  export type LaboratorioMaxAggregateInputType = {
+    id?: true
+    nombre?: true
+  }
+
+  export type LaboratorioCountAggregateInputType = {
     id?: true
     nombre?: true
     _all?: true
   }
 
-  export type LaboratoriosAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Laboratorios to aggregate.
+     * Filter which Laboratorio to aggregate.
      */
-    where?: LaboratoriosWhereInput
+    where?: LaboratorioWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Laboratorios to fetch.
      */
-    orderBy?: LaboratoriosOrderByWithRelationInput | LaboratoriosOrderByWithRelationInput[]
+    orderBy?: LaboratorioOrderByWithRelationInput | LaboratorioOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: LaboratoriosWhereUniqueInput
+    cursor?: LaboratorioWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -1033,253 +1033,253 @@ export namespace Prisma {
      * 
      * Count returned Laboratorios
     **/
-    _count?: true | LaboratoriosCountAggregateInputType
+    _count?: true | LaboratorioCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: LaboratoriosAvgAggregateInputType
+    _avg?: LaboratorioAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: LaboratoriosSumAggregateInputType
+    _sum?: LaboratorioSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: LaboratoriosMinAggregateInputType
+    _min?: LaboratorioMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: LaboratoriosMaxAggregateInputType
+    _max?: LaboratorioMaxAggregateInputType
   }
 
-  export type GetLaboratoriosAggregateType<T extends LaboratoriosAggregateArgs> = {
-        [P in keyof T & keyof AggregateLaboratorios]: P extends '_count' | 'count'
+  export type GetLaboratorioAggregateType<T extends LaboratorioAggregateArgs> = {
+        [P in keyof T & keyof AggregateLaboratorio]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateLaboratorios[P]>
-      : GetScalarType<T[P], AggregateLaboratorios[P]>
+        : GetScalarType<T[P], AggregateLaboratorio[P]>
+      : GetScalarType<T[P], AggregateLaboratorio[P]>
   }
 
 
 
 
-  export type LaboratoriosGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LaboratoriosWhereInput
-    orderBy?: LaboratoriosOrderByWithAggregationInput | LaboratoriosOrderByWithAggregationInput[]
-    by: LaboratoriosScalarFieldEnum[] | LaboratoriosScalarFieldEnum
-    having?: LaboratoriosScalarWhereWithAggregatesInput
+  export type LaboratorioGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LaboratorioWhereInput
+    orderBy?: LaboratorioOrderByWithAggregationInput | LaboratorioOrderByWithAggregationInput[]
+    by: LaboratorioScalarFieldEnum[] | LaboratorioScalarFieldEnum
+    having?: LaboratorioScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: LaboratoriosCountAggregateInputType | true
-    _avg?: LaboratoriosAvgAggregateInputType
-    _sum?: LaboratoriosSumAggregateInputType
-    _min?: LaboratoriosMinAggregateInputType
-    _max?: LaboratoriosMaxAggregateInputType
+    _count?: LaboratorioCountAggregateInputType | true
+    _avg?: LaboratorioAvgAggregateInputType
+    _sum?: LaboratorioSumAggregateInputType
+    _min?: LaboratorioMinAggregateInputType
+    _max?: LaboratorioMaxAggregateInputType
   }
 
-  export type LaboratoriosGroupByOutputType = {
+  export type LaboratorioGroupByOutputType = {
     id: number
     nombre: string
-    _count: LaboratoriosCountAggregateOutputType | null
-    _avg: LaboratoriosAvgAggregateOutputType | null
-    _sum: LaboratoriosSumAggregateOutputType | null
-    _min: LaboratoriosMinAggregateOutputType | null
-    _max: LaboratoriosMaxAggregateOutputType | null
+    _count: LaboratorioCountAggregateOutputType | null
+    _avg: LaboratorioAvgAggregateOutputType | null
+    _sum: LaboratorioSumAggregateOutputType | null
+    _min: LaboratorioMinAggregateOutputType | null
+    _max: LaboratorioMaxAggregateOutputType | null
   }
 
-  type GetLaboratoriosGroupByPayload<T extends LaboratoriosGroupByArgs> = Prisma.PrismaPromise<
+  type GetLaboratorioGroupByPayload<T extends LaboratorioGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<LaboratoriosGroupByOutputType, T['by']> &
+      PickEnumerable<LaboratorioGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof LaboratoriosGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof LaboratorioGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], LaboratoriosGroupByOutputType[P]>
-            : GetScalarType<T[P], LaboratoriosGroupByOutputType[P]>
+              : GetScalarType<T[P], LaboratorioGroupByOutputType[P]>
+            : GetScalarType<T[P], LaboratorioGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type LaboratoriosSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type LaboratorioSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
-  }, ExtArgs["result"]["laboratorios"]>
+  }, ExtArgs["result"]["laboratorio"]>
 
-  export type LaboratoriosSelectScalar = {
+  export type LaboratorioSelectScalar = {
     id?: boolean
     nombre?: boolean
   }
 
 
-  export type $LaboratoriosPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Laboratorios"
+  export type $LaboratorioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Laboratorio"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nombre: string
-    }, ExtArgs["result"]["laboratorios"]>
+    }, ExtArgs["result"]["laboratorio"]>
     composites: {}
   }
 
 
-  type LaboratoriosGetPayload<S extends boolean | null | undefined | LaboratoriosDefaultArgs> = $Result.GetResult<Prisma.$LaboratoriosPayload, S>
+  type LaboratorioGetPayload<S extends boolean | null | undefined | LaboratorioDefaultArgs> = $Result.GetResult<Prisma.$LaboratorioPayload, S>
 
-  type LaboratoriosCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<LaboratoriosFindManyArgs, 'select' | 'include' | 'distinct' > & {
-      select?: LaboratoriosCountAggregateInputType | true
+  type LaboratorioCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<LaboratorioFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: LaboratorioCountAggregateInputType | true
     }
 
-  export interface LaboratoriosDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Laboratorios'], meta: { name: 'Laboratorios' } }
+  export interface LaboratorioDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Laboratorio'], meta: { name: 'Laboratorio' } }
     /**
-     * Find zero or one Laboratorios that matches the filter.
-     * @param {LaboratoriosFindUniqueArgs} args - Arguments to find a Laboratorios
+     * Find zero or one Laboratorio that matches the filter.
+     * @param {LaboratorioFindUniqueArgs} args - Arguments to find a Laboratorio
      * @example
-     * // Get one Laboratorios
-     * const laboratorios = await prisma.laboratorios.findUnique({
+     * // Get one Laboratorio
+     * const laboratorio = await prisma.laboratorio.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends LaboratoriosFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, LaboratoriosFindUniqueArgs<ExtArgs>>
-    ): Prisma__LaboratoriosClient<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends LaboratorioFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, LaboratorioFindUniqueArgs<ExtArgs>>
+    ): Prisma__LaboratorioClient<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one Laboratorios that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Laboratorio that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {LaboratoriosFindUniqueOrThrowArgs} args - Arguments to find a Laboratorios
+     * @param {LaboratorioFindUniqueOrThrowArgs} args - Arguments to find a Laboratorio
      * @example
-     * // Get one Laboratorios
-     * const laboratorios = await prisma.laboratorios.findUniqueOrThrow({
+     * // Get one Laboratorio
+     * const laboratorio = await prisma.laboratorio.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends LaboratoriosFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, LaboratoriosFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__LaboratoriosClient<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends LaboratorioFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LaboratorioFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__LaboratorioClient<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first Laboratorios that matches the filter.
+     * Find the first Laboratorio that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LaboratoriosFindFirstArgs} args - Arguments to find a Laboratorios
+     * @param {LaboratorioFindFirstArgs} args - Arguments to find a Laboratorio
      * @example
-     * // Get one Laboratorios
-     * const laboratorios = await prisma.laboratorios.findFirst({
+     * // Get one Laboratorio
+     * const laboratorio = await prisma.laboratorio.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends LaboratoriosFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, LaboratoriosFindFirstArgs<ExtArgs>>
-    ): Prisma__LaboratoriosClient<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends LaboratorioFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, LaboratorioFindFirstArgs<ExtArgs>>
+    ): Prisma__LaboratorioClient<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first Laboratorios that matches the filter or
+     * Find the first Laboratorio that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LaboratoriosFindFirstOrThrowArgs} args - Arguments to find a Laboratorios
+     * @param {LaboratorioFindFirstOrThrowArgs} args - Arguments to find a Laboratorio
      * @example
-     * // Get one Laboratorios
-     * const laboratorios = await prisma.laboratorios.findFirstOrThrow({
+     * // Get one Laboratorio
+     * const laboratorio = await prisma.laboratorio.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends LaboratoriosFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, LaboratoriosFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__LaboratoriosClient<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends LaboratorioFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, LaboratorioFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__LaboratorioClient<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
      * Find zero or more Laboratorios that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LaboratoriosFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {LaboratorioFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Laboratorios
-     * const laboratorios = await prisma.laboratorios.findMany()
+     * const laboratorios = await prisma.laboratorio.findMany()
      * 
      * // Get first 10 Laboratorios
-     * const laboratorios = await prisma.laboratorios.findMany({ take: 10 })
+     * const laboratorios = await prisma.laboratorio.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const laboratoriosWithIdOnly = await prisma.laboratorios.findMany({ select: { id: true } })
+     * const laboratorioWithIdOnly = await prisma.laboratorio.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends LaboratoriosFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, LaboratoriosFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends LaboratorioFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LaboratorioFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a Laboratorios.
-     * @param {LaboratoriosCreateArgs} args - Arguments to create a Laboratorios.
+     * Create a Laboratorio.
+     * @param {LaboratorioCreateArgs} args - Arguments to create a Laboratorio.
      * @example
-     * // Create one Laboratorios
-     * const Laboratorios = await prisma.laboratorios.create({
+     * // Create one Laboratorio
+     * const Laboratorio = await prisma.laboratorio.create({
      *   data: {
-     *     // ... data to create a Laboratorios
+     *     // ... data to create a Laboratorio
      *   }
      * })
      * 
     **/
-    create<T extends LaboratoriosCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, LaboratoriosCreateArgs<ExtArgs>>
-    ): Prisma__LaboratoriosClient<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends LaboratorioCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, LaboratorioCreateArgs<ExtArgs>>
+    ): Prisma__LaboratorioClient<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
      * Create many Laboratorios.
-     *     @param {LaboratoriosCreateManyArgs} args - Arguments to create many Laboratorios.
+     *     @param {LaboratorioCreateManyArgs} args - Arguments to create many Laboratorios.
      *     @example
      *     // Create many Laboratorios
-     *     const laboratorios = await prisma.laboratorios.createMany({
+     *     const laboratorio = await prisma.laboratorio.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends LaboratoriosCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, LaboratoriosCreateManyArgs<ExtArgs>>
+    createMany<T extends LaboratorioCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LaboratorioCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Laboratorios.
-     * @param {LaboratoriosDeleteArgs} args - Arguments to delete one Laboratorios.
+     * Delete a Laboratorio.
+     * @param {LaboratorioDeleteArgs} args - Arguments to delete one Laboratorio.
      * @example
-     * // Delete one Laboratorios
-     * const Laboratorios = await prisma.laboratorios.delete({
+     * // Delete one Laboratorio
+     * const Laboratorio = await prisma.laboratorio.delete({
      *   where: {
-     *     // ... filter to delete one Laboratorios
+     *     // ... filter to delete one Laboratorio
      *   }
      * })
      * 
     **/
-    delete<T extends LaboratoriosDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, LaboratoriosDeleteArgs<ExtArgs>>
-    ): Prisma__LaboratoriosClient<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends LaboratorioDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, LaboratorioDeleteArgs<ExtArgs>>
+    ): Prisma__LaboratorioClient<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one Laboratorios.
-     * @param {LaboratoriosUpdateArgs} args - Arguments to update one Laboratorios.
+     * Update one Laboratorio.
+     * @param {LaboratorioUpdateArgs} args - Arguments to update one Laboratorio.
      * @example
-     * // Update one Laboratorios
-     * const laboratorios = await prisma.laboratorios.update({
+     * // Update one Laboratorio
+     * const laboratorio = await prisma.laboratorio.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1289,34 +1289,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends LaboratoriosUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, LaboratoriosUpdateArgs<ExtArgs>>
-    ): Prisma__LaboratoriosClient<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends LaboratorioUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, LaboratorioUpdateArgs<ExtArgs>>
+    ): Prisma__LaboratorioClient<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
      * Delete zero or more Laboratorios.
-     * @param {LaboratoriosDeleteManyArgs} args - Arguments to filter Laboratorios to delete.
+     * @param {LaboratorioDeleteManyArgs} args - Arguments to filter Laboratorios to delete.
      * @example
      * // Delete a few Laboratorios
-     * const { count } = await prisma.laboratorios.deleteMany({
+     * const { count } = await prisma.laboratorio.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends LaboratoriosDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, LaboratoriosDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends LaboratorioDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, LaboratorioDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Laboratorios.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LaboratoriosUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {LaboratorioUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Laboratorios
-     * const laboratorios = await prisma.laboratorios.updateMany({
+     * const laboratorio = await prisma.laboratorio.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1326,59 +1326,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends LaboratoriosUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, LaboratoriosUpdateManyArgs<ExtArgs>>
+    updateMany<T extends LaboratorioUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, LaboratorioUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Laboratorios.
-     * @param {LaboratoriosUpsertArgs} args - Arguments to update or create a Laboratorios.
+     * Create or update one Laboratorio.
+     * @param {LaboratorioUpsertArgs} args - Arguments to update or create a Laboratorio.
      * @example
-     * // Update or create a Laboratorios
-     * const laboratorios = await prisma.laboratorios.upsert({
+     * // Update or create a Laboratorio
+     * const laboratorio = await prisma.laboratorio.upsert({
      *   create: {
-     *     // ... data to create a Laboratorios
+     *     // ... data to create a Laboratorio
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Laboratorios we want to update
+     *     // ... the filter for the Laboratorio we want to update
      *   }
      * })
     **/
-    upsert<T extends LaboratoriosUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, LaboratoriosUpsertArgs<ExtArgs>>
-    ): Prisma__LaboratoriosClient<$Result.GetResult<Prisma.$LaboratoriosPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends LaboratorioUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, LaboratorioUpsertArgs<ExtArgs>>
+    ): Prisma__LaboratorioClient<$Result.GetResult<Prisma.$LaboratorioPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
      * Count the number of Laboratorios.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LaboratoriosCountArgs} args - Arguments to filter Laboratorios to count.
+     * @param {LaboratorioCountArgs} args - Arguments to filter Laboratorios to count.
      * @example
      * // Count the number of Laboratorios
-     * const count = await prisma.laboratorios.count({
+     * const count = await prisma.laboratorio.count({
      *   where: {
      *     // ... the filter for the Laboratorios we want to count
      *   }
      * })
     **/
-    count<T extends LaboratoriosCountArgs>(
-      args?: Subset<T, LaboratoriosCountArgs>,
+    count<T extends LaboratorioCountArgs>(
+      args?: Subset<T, LaboratorioCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], LaboratoriosCountAggregateOutputType>
+          : GetScalarType<T['select'], LaboratorioCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Laboratorios.
+     * Allows you to perform aggregations operations on a Laboratorio.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LaboratoriosAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {LaboratorioAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1398,13 +1398,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends LaboratoriosAggregateArgs>(args: Subset<T, LaboratoriosAggregateArgs>): Prisma.PrismaPromise<GetLaboratoriosAggregateType<T>>
+    aggregate<T extends LaboratorioAggregateArgs>(args: Subset<T, LaboratorioAggregateArgs>): Prisma.PrismaPromise<GetLaboratorioAggregateType<T>>
 
     /**
-     * Group by Laboratorios.
+     * Group by Laboratorio.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {LaboratoriosGroupByArgs} args - Group by arguments.
+     * @param {LaboratorioGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1419,14 +1419,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends LaboratoriosGroupByArgs,
+      T extends LaboratorioGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: LaboratoriosGroupByArgs['orderBy'] }
-        : { orderBy?: LaboratoriosGroupByArgs['orderBy'] },
+        ? { orderBy: LaboratorioGroupByArgs['orderBy'] }
+        : { orderBy?: LaboratorioGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1475,20 +1475,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, LaboratoriosGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLaboratoriosGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, LaboratorioGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLaboratorioGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Laboratorios model
+   * Fields of the Laboratorio model
    */
-  readonly fields: LaboratoriosFieldRefs;
+  readonly fields: LaboratorioFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Laboratorios.
+   * The delegate class that acts as a "Promise-like" for Laboratorio.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__LaboratoriosClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__LaboratorioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -1517,70 +1517,70 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Laboratorios model
+   * Fields of the Laboratorio model
    */ 
-  interface LaboratoriosFieldRefs {
-    readonly id: FieldRef<"Laboratorios", 'Int'>
-    readonly nombre: FieldRef<"Laboratorios", 'String'>
+  interface LaboratorioFieldRefs {
+    readonly id: FieldRef<"Laboratorio", 'Int'>
+    readonly nombre: FieldRef<"Laboratorio", 'String'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * Laboratorios findUnique
+   * Laboratorio findUnique
    */
-  export type LaboratoriosFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
-     * Filter, which Laboratorios to fetch.
+     * Filter, which Laboratorio to fetch.
      */
-    where: LaboratoriosWhereUniqueInput
+    where: LaboratorioWhereUniqueInput
   }
 
 
   /**
-   * Laboratorios findUniqueOrThrow
+   * Laboratorio findUniqueOrThrow
    */
-  export type LaboratoriosFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
-     * Filter, which Laboratorios to fetch.
+     * Filter, which Laboratorio to fetch.
      */
-    where: LaboratoriosWhereUniqueInput
+    where: LaboratorioWhereUniqueInput
   }
 
 
   /**
-   * Laboratorios findFirst
+   * Laboratorio findFirst
    */
-  export type LaboratoriosFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
-     * Filter, which Laboratorios to fetch.
+     * Filter, which Laboratorio to fetch.
      */
-    where?: LaboratoriosWhereInput
+    where?: LaboratorioWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Laboratorios to fetch.
      */
-    orderBy?: LaboratoriosOrderByWithRelationInput | LaboratoriosOrderByWithRelationInput[]
+    orderBy?: LaboratorioOrderByWithRelationInput | LaboratorioOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for searching for Laboratorios.
      */
-    cursor?: LaboratoriosWhereUniqueInput
+    cursor?: LaboratorioWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -1598,34 +1598,34 @@ export namespace Prisma {
      * 
      * Filter by unique combinations of Laboratorios.
      */
-    distinct?: LaboratoriosScalarFieldEnum | LaboratoriosScalarFieldEnum[]
+    distinct?: LaboratorioScalarFieldEnum | LaboratorioScalarFieldEnum[]
   }
 
 
   /**
-   * Laboratorios findFirstOrThrow
+   * Laboratorio findFirstOrThrow
    */
-  export type LaboratoriosFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
-     * Filter, which Laboratorios to fetch.
+     * Filter, which Laboratorio to fetch.
      */
-    where?: LaboratoriosWhereInput
+    where?: LaboratorioWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Laboratorios to fetch.
      */
-    orderBy?: LaboratoriosOrderByWithRelationInput | LaboratoriosOrderByWithRelationInput[]
+    orderBy?: LaboratorioOrderByWithRelationInput | LaboratorioOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for searching for Laboratorios.
      */
-    cursor?: LaboratoriosWhereUniqueInput
+    cursor?: LaboratorioWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -1643,34 +1643,34 @@ export namespace Prisma {
      * 
      * Filter by unique combinations of Laboratorios.
      */
-    distinct?: LaboratoriosScalarFieldEnum | LaboratoriosScalarFieldEnum[]
+    distinct?: LaboratorioScalarFieldEnum | LaboratorioScalarFieldEnum[]
   }
 
 
   /**
-   * Laboratorios findMany
+   * Laboratorio findMany
    */
-  export type LaboratoriosFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
      * Filter, which Laboratorios to fetch.
      */
-    where?: LaboratoriosWhereInput
+    where?: LaboratorioWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Laboratorios to fetch.
      */
-    orderBy?: LaboratoriosOrderByWithRelationInput | LaboratoriosOrderByWithRelationInput[]
+    orderBy?: LaboratorioOrderByWithRelationInput | LaboratorioOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for listing Laboratorios.
      */
-    cursor?: LaboratoriosWhereUniqueInput
+    cursor?: LaboratorioWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -1683,210 +1683,210 @@ export namespace Prisma {
      * Skip the first `n` Laboratorios.
      */
     skip?: number
-    distinct?: LaboratoriosScalarFieldEnum | LaboratoriosScalarFieldEnum[]
+    distinct?: LaboratorioScalarFieldEnum | LaboratorioScalarFieldEnum[]
   }
 
 
   /**
-   * Laboratorios create
+   * Laboratorio create
    */
-  export type LaboratoriosCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
-     * The data needed to create a Laboratorios.
+     * The data needed to create a Laboratorio.
      */
-    data: XOR<LaboratoriosCreateInput, LaboratoriosUncheckedCreateInput>
+    data: XOR<LaboratorioCreateInput, LaboratorioUncheckedCreateInput>
   }
 
 
   /**
-   * Laboratorios createMany
+   * Laboratorio createMany
    */
-  export type LaboratoriosCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many Laboratorios.
      */
-    data: LaboratoriosCreateManyInput | LaboratoriosCreateManyInput[]
+    data: LaboratorioCreateManyInput | LaboratorioCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * Laboratorios update
+   * Laboratorio update
    */
-  export type LaboratoriosUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
-     * The data needed to update a Laboratorios.
+     * The data needed to update a Laboratorio.
      */
-    data: XOR<LaboratoriosUpdateInput, LaboratoriosUncheckedUpdateInput>
+    data: XOR<LaboratorioUpdateInput, LaboratorioUncheckedUpdateInput>
     /**
-     * Choose, which Laboratorios to update.
+     * Choose, which Laboratorio to update.
      */
-    where: LaboratoriosWhereUniqueInput
+    where: LaboratorioWhereUniqueInput
   }
 
 
   /**
-   * Laboratorios updateMany
+   * Laboratorio updateMany
    */
-  export type LaboratoriosUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update Laboratorios.
      */
-    data: XOR<LaboratoriosUpdateManyMutationInput, LaboratoriosUncheckedUpdateManyInput>
+    data: XOR<LaboratorioUpdateManyMutationInput, LaboratorioUncheckedUpdateManyInput>
     /**
      * Filter which Laboratorios to update
      */
-    where?: LaboratoriosWhereInput
+    where?: LaboratorioWhereInput
   }
 
 
   /**
-   * Laboratorios upsert
+   * Laboratorio upsert
    */
-  export type LaboratoriosUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
-     * The filter to search for the Laboratorios to update in case it exists.
+     * The filter to search for the Laboratorio to update in case it exists.
      */
-    where: LaboratoriosWhereUniqueInput
+    where: LaboratorioWhereUniqueInput
     /**
-     * In case the Laboratorios found by the `where` argument doesn't exist, create a new Laboratorios with this data.
+     * In case the Laboratorio found by the `where` argument doesn't exist, create a new Laboratorio with this data.
      */
-    create: XOR<LaboratoriosCreateInput, LaboratoriosUncheckedCreateInput>
+    create: XOR<LaboratorioCreateInput, LaboratorioUncheckedCreateInput>
     /**
-     * In case the Laboratorios was found with the provided `where` argument, update it with this data.
+     * In case the Laboratorio was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<LaboratoriosUpdateInput, LaboratoriosUncheckedUpdateInput>
+    update: XOR<LaboratorioUpdateInput, LaboratorioUncheckedUpdateInput>
   }
 
 
   /**
-   * Laboratorios delete
+   * Laboratorio delete
    */
-  export type LaboratoriosDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
     /**
-     * Filter which Laboratorios to delete.
+     * Filter which Laboratorio to delete.
      */
-    where: LaboratoriosWhereUniqueInput
+    where: LaboratorioWhereUniqueInput
   }
 
 
   /**
-   * Laboratorios deleteMany
+   * Laboratorio deleteMany
    */
-  export type LaboratoriosDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Laboratorios to delete
      */
-    where?: LaboratoriosWhereInput
+    where?: LaboratorioWhereInput
   }
 
 
   /**
-   * Laboratorios without action
+   * Laboratorio without action
    */
-  export type LaboratoriosDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type LaboratorioDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Laboratorios
+     * Select specific fields to fetch from the Laboratorio
      */
-    select?: LaboratoriosSelect<ExtArgs> | null
+    select?: LaboratorioSelect<ExtArgs> | null
   }
 
 
 
   /**
-   * Model Carreras
+   * Model Carrera
    */
 
-  export type AggregateCarreras = {
-    _count: CarrerasCountAggregateOutputType | null
-    _avg: CarrerasAvgAggregateOutputType | null
-    _sum: CarrerasSumAggregateOutputType | null
-    _min: CarrerasMinAggregateOutputType | null
-    _max: CarrerasMaxAggregateOutputType | null
+  export type AggregateCarrera = {
+    _count: CarreraCountAggregateOutputType | null
+    _avg: CarreraAvgAggregateOutputType | null
+    _sum: CarreraSumAggregateOutputType | null
+    _min: CarreraMinAggregateOutputType | null
+    _max: CarreraMaxAggregateOutputType | null
   }
 
-  export type CarrerasAvgAggregateOutputType = {
+  export type CarreraAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type CarrerasSumAggregateOutputType = {
+  export type CarreraSumAggregateOutputType = {
     id: number | null
   }
 
-  export type CarrerasMinAggregateOutputType = {
-    id: number | null
-    nombre: string | null
-  }
-
-  export type CarrerasMaxAggregateOutputType = {
+  export type CarreraMinAggregateOutputType = {
     id: number | null
     nombre: string | null
   }
 
-  export type CarrerasCountAggregateOutputType = {
+  export type CarreraMaxAggregateOutputType = {
+    id: number | null
+    nombre: string | null
+  }
+
+  export type CarreraCountAggregateOutputType = {
     id: number
     nombre: number
     _all: number
   }
 
 
-  export type CarrerasAvgAggregateInputType = {
+  export type CarreraAvgAggregateInputType = {
     id?: true
   }
 
-  export type CarrerasSumAggregateInputType = {
+  export type CarreraSumAggregateInputType = {
     id?: true
   }
 
-  export type CarrerasMinAggregateInputType = {
-    id?: true
-    nombre?: true
-  }
-
-  export type CarrerasMaxAggregateInputType = {
+  export type CarreraMinAggregateInputType = {
     id?: true
     nombre?: true
   }
 
-  export type CarrerasCountAggregateInputType = {
+  export type CarreraMaxAggregateInputType = {
+    id?: true
+    nombre?: true
+  }
+
+  export type CarreraCountAggregateInputType = {
     id?: true
     nombre?: true
     _all?: true
   }
 
-  export type CarrerasAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Carreras to aggregate.
+     * Filter which Carrera to aggregate.
      */
-    where?: CarrerasWhereInput
+    where?: CarreraWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Carreras to fetch.
      */
-    orderBy?: CarrerasOrderByWithRelationInput | CarrerasOrderByWithRelationInput[]
+    orderBy?: CarreraOrderByWithRelationInput | CarreraOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: CarrerasWhereUniqueInput
+    cursor?: CarreraWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -1904,253 +1904,253 @@ export namespace Prisma {
      * 
      * Count returned Carreras
     **/
-    _count?: true | CarrerasCountAggregateInputType
+    _count?: true | CarreraCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: CarrerasAvgAggregateInputType
+    _avg?: CarreraAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: CarrerasSumAggregateInputType
+    _sum?: CarreraSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CarrerasMinAggregateInputType
+    _min?: CarreraMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CarrerasMaxAggregateInputType
+    _max?: CarreraMaxAggregateInputType
   }
 
-  export type GetCarrerasAggregateType<T extends CarrerasAggregateArgs> = {
-        [P in keyof T & keyof AggregateCarreras]: P extends '_count' | 'count'
+  export type GetCarreraAggregateType<T extends CarreraAggregateArgs> = {
+        [P in keyof T & keyof AggregateCarrera]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCarreras[P]>
-      : GetScalarType<T[P], AggregateCarreras[P]>
+        : GetScalarType<T[P], AggregateCarrera[P]>
+      : GetScalarType<T[P], AggregateCarrera[P]>
   }
 
 
 
 
-  export type CarrerasGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CarrerasWhereInput
-    orderBy?: CarrerasOrderByWithAggregationInput | CarrerasOrderByWithAggregationInput[]
-    by: CarrerasScalarFieldEnum[] | CarrerasScalarFieldEnum
-    having?: CarrerasScalarWhereWithAggregatesInput
+  export type CarreraGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CarreraWhereInput
+    orderBy?: CarreraOrderByWithAggregationInput | CarreraOrderByWithAggregationInput[]
+    by: CarreraScalarFieldEnum[] | CarreraScalarFieldEnum
+    having?: CarreraScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CarrerasCountAggregateInputType | true
-    _avg?: CarrerasAvgAggregateInputType
-    _sum?: CarrerasSumAggregateInputType
-    _min?: CarrerasMinAggregateInputType
-    _max?: CarrerasMaxAggregateInputType
+    _count?: CarreraCountAggregateInputType | true
+    _avg?: CarreraAvgAggregateInputType
+    _sum?: CarreraSumAggregateInputType
+    _min?: CarreraMinAggregateInputType
+    _max?: CarreraMaxAggregateInputType
   }
 
-  export type CarrerasGroupByOutputType = {
+  export type CarreraGroupByOutputType = {
     id: number
     nombre: string
-    _count: CarrerasCountAggregateOutputType | null
-    _avg: CarrerasAvgAggregateOutputType | null
-    _sum: CarrerasSumAggregateOutputType | null
-    _min: CarrerasMinAggregateOutputType | null
-    _max: CarrerasMaxAggregateOutputType | null
+    _count: CarreraCountAggregateOutputType | null
+    _avg: CarreraAvgAggregateOutputType | null
+    _sum: CarreraSumAggregateOutputType | null
+    _min: CarreraMinAggregateOutputType | null
+    _max: CarreraMaxAggregateOutputType | null
   }
 
-  type GetCarrerasGroupByPayload<T extends CarrerasGroupByArgs> = Prisma.PrismaPromise<
+  type GetCarreraGroupByPayload<T extends CarreraGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CarrerasGroupByOutputType, T['by']> &
+      PickEnumerable<CarreraGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CarrerasGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CarreraGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CarrerasGroupByOutputType[P]>
-            : GetScalarType<T[P], CarrerasGroupByOutputType[P]>
+              : GetScalarType<T[P], CarreraGroupByOutputType[P]>
+            : GetScalarType<T[P], CarreraGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type CarrerasSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type CarreraSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nombre?: boolean
-  }, ExtArgs["result"]["carreras"]>
+  }, ExtArgs["result"]["carrera"]>
 
-  export type CarrerasSelectScalar = {
+  export type CarreraSelectScalar = {
     id?: boolean
     nombre?: boolean
   }
 
 
-  export type $CarrerasPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Carreras"
+  export type $CarreraPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Carrera"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nombre: string
-    }, ExtArgs["result"]["carreras"]>
+    }, ExtArgs["result"]["carrera"]>
     composites: {}
   }
 
 
-  type CarrerasGetPayload<S extends boolean | null | undefined | CarrerasDefaultArgs> = $Result.GetResult<Prisma.$CarrerasPayload, S>
+  type CarreraGetPayload<S extends boolean | null | undefined | CarreraDefaultArgs> = $Result.GetResult<Prisma.$CarreraPayload, S>
 
-  type CarrerasCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<CarrerasFindManyArgs, 'select' | 'include' | 'distinct' > & {
-      select?: CarrerasCountAggregateInputType | true
+  type CarreraCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<CarreraFindManyArgs, 'select' | 'include' | 'distinct' > & {
+      select?: CarreraCountAggregateInputType | true
     }
 
-  export interface CarrerasDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Carreras'], meta: { name: 'Carreras' } }
+  export interface CarreraDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Carrera'], meta: { name: 'Carrera' } }
     /**
-     * Find zero or one Carreras that matches the filter.
-     * @param {CarrerasFindUniqueArgs} args - Arguments to find a Carreras
+     * Find zero or one Carrera that matches the filter.
+     * @param {CarreraFindUniqueArgs} args - Arguments to find a Carrera
      * @example
-     * // Get one Carreras
-     * const carreras = await prisma.carreras.findUnique({
+     * // Get one Carrera
+     * const carrera = await prisma.carrera.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends CarrerasFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, CarrerasFindUniqueArgs<ExtArgs>>
-    ): Prisma__CarrerasClient<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends CarreraFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, CarreraFindUniqueArgs<ExtArgs>>
+    ): Prisma__CarreraClient<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one Carreras that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Carrera that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {CarrerasFindUniqueOrThrowArgs} args - Arguments to find a Carreras
+     * @param {CarreraFindUniqueOrThrowArgs} args - Arguments to find a Carrera
      * @example
-     * // Get one Carreras
-     * const carreras = await prisma.carreras.findUniqueOrThrow({
+     * // Get one Carrera
+     * const carrera = await prisma.carrera.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends CarrerasFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, CarrerasFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__CarrerasClient<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends CarreraFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, CarreraFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__CarreraClient<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first Carreras that matches the filter.
+     * Find the first Carrera that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarrerasFindFirstArgs} args - Arguments to find a Carreras
+     * @param {CarreraFindFirstArgs} args - Arguments to find a Carrera
      * @example
-     * // Get one Carreras
-     * const carreras = await prisma.carreras.findFirst({
+     * // Get one Carrera
+     * const carrera = await prisma.carrera.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends CarrerasFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, CarrerasFindFirstArgs<ExtArgs>>
-    ): Prisma__CarrerasClient<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends CarreraFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, CarreraFindFirstArgs<ExtArgs>>
+    ): Prisma__CarreraClient<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first Carreras that matches the filter or
+     * Find the first Carrera that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarrerasFindFirstOrThrowArgs} args - Arguments to find a Carreras
+     * @param {CarreraFindFirstOrThrowArgs} args - Arguments to find a Carrera
      * @example
-     * // Get one Carreras
-     * const carreras = await prisma.carreras.findFirstOrThrow({
+     * // Get one Carrera
+     * const carrera = await prisma.carrera.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends CarrerasFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, CarrerasFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__CarrerasClient<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends CarreraFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, CarreraFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__CarreraClient<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
      * Find zero or more Carreras that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarrerasFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {CarreraFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Carreras
-     * const carreras = await prisma.carreras.findMany()
+     * const carreras = await prisma.carrera.findMany()
      * 
      * // Get first 10 Carreras
-     * const carreras = await prisma.carreras.findMany({ take: 10 })
+     * const carreras = await prisma.carrera.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const carrerasWithIdOnly = await prisma.carreras.findMany({ select: { id: true } })
+     * const carreraWithIdOnly = await prisma.carrera.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends CarrerasFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, CarrerasFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends CarreraFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CarreraFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a Carreras.
-     * @param {CarrerasCreateArgs} args - Arguments to create a Carreras.
+     * Create a Carrera.
+     * @param {CarreraCreateArgs} args - Arguments to create a Carrera.
      * @example
-     * // Create one Carreras
-     * const Carreras = await prisma.carreras.create({
+     * // Create one Carrera
+     * const Carrera = await prisma.carrera.create({
      *   data: {
-     *     // ... data to create a Carreras
+     *     // ... data to create a Carrera
      *   }
      * })
      * 
     **/
-    create<T extends CarrerasCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, CarrerasCreateArgs<ExtArgs>>
-    ): Prisma__CarrerasClient<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends CarreraCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, CarreraCreateArgs<ExtArgs>>
+    ): Prisma__CarreraClient<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
      * Create many Carreras.
-     *     @param {CarrerasCreateManyArgs} args - Arguments to create many Carreras.
+     *     @param {CarreraCreateManyArgs} args - Arguments to create many Carreras.
      *     @example
      *     // Create many Carreras
-     *     const carreras = await prisma.carreras.createMany({
+     *     const carrera = await prisma.carrera.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends CarrerasCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, CarrerasCreateManyArgs<ExtArgs>>
+    createMany<T extends CarreraCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CarreraCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a Carreras.
-     * @param {CarrerasDeleteArgs} args - Arguments to delete one Carreras.
+     * Delete a Carrera.
+     * @param {CarreraDeleteArgs} args - Arguments to delete one Carrera.
      * @example
-     * // Delete one Carreras
-     * const Carreras = await prisma.carreras.delete({
+     * // Delete one Carrera
+     * const Carrera = await prisma.carrera.delete({
      *   where: {
-     *     // ... filter to delete one Carreras
+     *     // ... filter to delete one Carrera
      *   }
      * })
      * 
     **/
-    delete<T extends CarrerasDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, CarrerasDeleteArgs<ExtArgs>>
-    ): Prisma__CarrerasClient<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends CarreraDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, CarreraDeleteArgs<ExtArgs>>
+    ): Prisma__CarreraClient<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one Carreras.
-     * @param {CarrerasUpdateArgs} args - Arguments to update one Carreras.
+     * Update one Carrera.
+     * @param {CarreraUpdateArgs} args - Arguments to update one Carrera.
      * @example
-     * // Update one Carreras
-     * const carreras = await prisma.carreras.update({
+     * // Update one Carrera
+     * const carrera = await prisma.carrera.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2160,34 +2160,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends CarrerasUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, CarrerasUpdateArgs<ExtArgs>>
-    ): Prisma__CarrerasClient<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends CarreraUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, CarreraUpdateArgs<ExtArgs>>
+    ): Prisma__CarreraClient<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
      * Delete zero or more Carreras.
-     * @param {CarrerasDeleteManyArgs} args - Arguments to filter Carreras to delete.
+     * @param {CarreraDeleteManyArgs} args - Arguments to filter Carreras to delete.
      * @example
      * // Delete a few Carreras
-     * const { count } = await prisma.carreras.deleteMany({
+     * const { count } = await prisma.carrera.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends CarrerasDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, CarrerasDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends CarreraDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, CarreraDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Carreras.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarrerasUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {CarreraUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Carreras
-     * const carreras = await prisma.carreras.updateMany({
+     * const carrera = await prisma.carrera.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2197,59 +2197,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends CarrerasUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, CarrerasUpdateManyArgs<ExtArgs>>
+    updateMany<T extends CarreraUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, CarreraUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one Carreras.
-     * @param {CarrerasUpsertArgs} args - Arguments to update or create a Carreras.
+     * Create or update one Carrera.
+     * @param {CarreraUpsertArgs} args - Arguments to update or create a Carrera.
      * @example
-     * // Update or create a Carreras
-     * const carreras = await prisma.carreras.upsert({
+     * // Update or create a Carrera
+     * const carrera = await prisma.carrera.upsert({
      *   create: {
-     *     // ... data to create a Carreras
+     *     // ... data to create a Carrera
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Carreras we want to update
+     *     // ... the filter for the Carrera we want to update
      *   }
      * })
     **/
-    upsert<T extends CarrerasUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, CarrerasUpsertArgs<ExtArgs>>
-    ): Prisma__CarrerasClient<$Result.GetResult<Prisma.$CarrerasPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends CarreraUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, CarreraUpsertArgs<ExtArgs>>
+    ): Prisma__CarreraClient<$Result.GetResult<Prisma.$CarreraPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
      * Count the number of Carreras.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarrerasCountArgs} args - Arguments to filter Carreras to count.
+     * @param {CarreraCountArgs} args - Arguments to filter Carreras to count.
      * @example
      * // Count the number of Carreras
-     * const count = await prisma.carreras.count({
+     * const count = await prisma.carrera.count({
      *   where: {
      *     // ... the filter for the Carreras we want to count
      *   }
      * })
     **/
-    count<T extends CarrerasCountArgs>(
-      args?: Subset<T, CarrerasCountArgs>,
+    count<T extends CarreraCountArgs>(
+      args?: Subset<T, CarreraCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CarrerasCountAggregateOutputType>
+          : GetScalarType<T['select'], CarreraCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Carreras.
+     * Allows you to perform aggregations operations on a Carrera.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarrerasAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CarreraAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2269,13 +2269,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CarrerasAggregateArgs>(args: Subset<T, CarrerasAggregateArgs>): Prisma.PrismaPromise<GetCarrerasAggregateType<T>>
+    aggregate<T extends CarreraAggregateArgs>(args: Subset<T, CarreraAggregateArgs>): Prisma.PrismaPromise<GetCarreraAggregateType<T>>
 
     /**
-     * Group by Carreras.
+     * Group by Carrera.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CarrerasGroupByArgs} args - Group by arguments.
+     * @param {CarreraGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2290,14 +2290,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends CarrerasGroupByArgs,
+      T extends CarreraGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CarrerasGroupByArgs['orderBy'] }
-        : { orderBy?: CarrerasGroupByArgs['orderBy'] },
+        ? { orderBy: CarreraGroupByArgs['orderBy'] }
+        : { orderBy?: CarreraGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2346,20 +2346,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, CarrerasGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCarrerasGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, CarreraGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCarreraGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Carreras model
+   * Fields of the Carrera model
    */
-  readonly fields: CarrerasFieldRefs;
+  readonly fields: CarreraFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Carreras.
+   * The delegate class that acts as a "Promise-like" for Carrera.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__CarrerasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__CarreraClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -2388,70 +2388,70 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Carreras model
+   * Fields of the Carrera model
    */ 
-  interface CarrerasFieldRefs {
-    readonly id: FieldRef<"Carreras", 'Int'>
-    readonly nombre: FieldRef<"Carreras", 'String'>
+  interface CarreraFieldRefs {
+    readonly id: FieldRef<"Carrera", 'Int'>
+    readonly nombre: FieldRef<"Carrera", 'String'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * Carreras findUnique
+   * Carrera findUnique
    */
-  export type CarrerasFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
-     * Filter, which Carreras to fetch.
+     * Filter, which Carrera to fetch.
      */
-    where: CarrerasWhereUniqueInput
+    where: CarreraWhereUniqueInput
   }
 
 
   /**
-   * Carreras findUniqueOrThrow
+   * Carrera findUniqueOrThrow
    */
-  export type CarrerasFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
-     * Filter, which Carreras to fetch.
+     * Filter, which Carrera to fetch.
      */
-    where: CarrerasWhereUniqueInput
+    where: CarreraWhereUniqueInput
   }
 
 
   /**
-   * Carreras findFirst
+   * Carrera findFirst
    */
-  export type CarrerasFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
-     * Filter, which Carreras to fetch.
+     * Filter, which Carrera to fetch.
      */
-    where?: CarrerasWhereInput
+    where?: CarreraWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Carreras to fetch.
      */
-    orderBy?: CarrerasOrderByWithRelationInput | CarrerasOrderByWithRelationInput[]
+    orderBy?: CarreraOrderByWithRelationInput | CarreraOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for searching for Carreras.
      */
-    cursor?: CarrerasWhereUniqueInput
+    cursor?: CarreraWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -2469,34 +2469,34 @@ export namespace Prisma {
      * 
      * Filter by unique combinations of Carreras.
      */
-    distinct?: CarrerasScalarFieldEnum | CarrerasScalarFieldEnum[]
+    distinct?: CarreraScalarFieldEnum | CarreraScalarFieldEnum[]
   }
 
 
   /**
-   * Carreras findFirstOrThrow
+   * Carrera findFirstOrThrow
    */
-  export type CarrerasFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
-     * Filter, which Carreras to fetch.
+     * Filter, which Carrera to fetch.
      */
-    where?: CarrerasWhereInput
+    where?: CarreraWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Carreras to fetch.
      */
-    orderBy?: CarrerasOrderByWithRelationInput | CarrerasOrderByWithRelationInput[]
+    orderBy?: CarreraOrderByWithRelationInput | CarreraOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for searching for Carreras.
      */
-    cursor?: CarrerasWhereUniqueInput
+    cursor?: CarreraWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -2514,34 +2514,34 @@ export namespace Prisma {
      * 
      * Filter by unique combinations of Carreras.
      */
-    distinct?: CarrerasScalarFieldEnum | CarrerasScalarFieldEnum[]
+    distinct?: CarreraScalarFieldEnum | CarreraScalarFieldEnum[]
   }
 
 
   /**
-   * Carreras findMany
+   * Carrera findMany
    */
-  export type CarrerasFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
      * Filter, which Carreras to fetch.
      */
-    where?: CarrerasWhereInput
+    where?: CarreraWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Carreras to fetch.
      */
-    orderBy?: CarrerasOrderByWithRelationInput | CarrerasOrderByWithRelationInput[]
+    orderBy?: CarreraOrderByWithRelationInput | CarreraOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for listing Carreras.
      */
-    cursor?: CarrerasWhereUniqueInput
+    cursor?: CarreraWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -2554,128 +2554,128 @@ export namespace Prisma {
      * Skip the first `n` Carreras.
      */
     skip?: number
-    distinct?: CarrerasScalarFieldEnum | CarrerasScalarFieldEnum[]
+    distinct?: CarreraScalarFieldEnum | CarreraScalarFieldEnum[]
   }
 
 
   /**
-   * Carreras create
+   * Carrera create
    */
-  export type CarrerasCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
-     * The data needed to create a Carreras.
+     * The data needed to create a Carrera.
      */
-    data: XOR<CarrerasCreateInput, CarrerasUncheckedCreateInput>
+    data: XOR<CarreraCreateInput, CarreraUncheckedCreateInput>
   }
 
 
   /**
-   * Carreras createMany
+   * Carrera createMany
    */
-  export type CarrerasCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many Carreras.
      */
-    data: CarrerasCreateManyInput | CarrerasCreateManyInput[]
+    data: CarreraCreateManyInput | CarreraCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * Carreras update
+   * Carrera update
    */
-  export type CarrerasUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
-     * The data needed to update a Carreras.
+     * The data needed to update a Carrera.
      */
-    data: XOR<CarrerasUpdateInput, CarrerasUncheckedUpdateInput>
+    data: XOR<CarreraUpdateInput, CarreraUncheckedUpdateInput>
     /**
-     * Choose, which Carreras to update.
+     * Choose, which Carrera to update.
      */
-    where: CarrerasWhereUniqueInput
+    where: CarreraWhereUniqueInput
   }
 
 
   /**
-   * Carreras updateMany
+   * Carrera updateMany
    */
-  export type CarrerasUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update Carreras.
      */
-    data: XOR<CarrerasUpdateManyMutationInput, CarrerasUncheckedUpdateManyInput>
+    data: XOR<CarreraUpdateManyMutationInput, CarreraUncheckedUpdateManyInput>
     /**
      * Filter which Carreras to update
      */
-    where?: CarrerasWhereInput
+    where?: CarreraWhereInput
   }
 
 
   /**
-   * Carreras upsert
+   * Carrera upsert
    */
-  export type CarrerasUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
-     * The filter to search for the Carreras to update in case it exists.
+     * The filter to search for the Carrera to update in case it exists.
      */
-    where: CarrerasWhereUniqueInput
+    where: CarreraWhereUniqueInput
     /**
-     * In case the Carreras found by the `where` argument doesn't exist, create a new Carreras with this data.
+     * In case the Carrera found by the `where` argument doesn't exist, create a new Carrera with this data.
      */
-    create: XOR<CarrerasCreateInput, CarrerasUncheckedCreateInput>
+    create: XOR<CarreraCreateInput, CarreraUncheckedCreateInput>
     /**
-     * In case the Carreras was found with the provided `where` argument, update it with this data.
+     * In case the Carrera was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<CarrerasUpdateInput, CarrerasUncheckedUpdateInput>
+    update: XOR<CarreraUpdateInput, CarreraUncheckedUpdateInput>
   }
 
 
   /**
-   * Carreras delete
+   * Carrera delete
    */
-  export type CarrerasDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
     /**
-     * Filter which Carreras to delete.
+     * Filter which Carrera to delete.
      */
-    where: CarrerasWhereUniqueInput
+    where: CarreraWhereUniqueInput
   }
 
 
   /**
-   * Carreras deleteMany
+   * Carrera deleteMany
    */
-  export type CarrerasDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Carreras to delete
      */
-    where?: CarrerasWhereInput
+    where?: CarreraWhereInput
   }
 
 
   /**
-   * Carreras without action
+   * Carrera without action
    */
-  export type CarrerasDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CarreraDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Carreras
+     * Select specific fields to fetch from the Carrera
      */
-    select?: CarrerasSelect<ExtArgs> | null
+    select?: CarreraSelect<ExtArgs> | null
   }
 
 
@@ -2694,20 +2694,20 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const LaboratoriosScalarFieldEnum: {
+  export const LaboratorioScalarFieldEnum: {
     id: 'id',
     nombre: 'nombre'
   };
 
-  export type LaboratoriosScalarFieldEnum = (typeof LaboratoriosScalarFieldEnum)[keyof typeof LaboratoriosScalarFieldEnum]
+  export type LaboratorioScalarFieldEnum = (typeof LaboratorioScalarFieldEnum)[keyof typeof LaboratorioScalarFieldEnum]
 
 
-  export const CarrerasScalarFieldEnum: {
+  export const CarreraScalarFieldEnum: {
     id: 'id',
     nombre: 'nombre'
   };
 
-  export type CarrerasScalarFieldEnum = (typeof CarrerasScalarFieldEnum)[keyof typeof CarrerasScalarFieldEnum]
+  export type CarreraScalarFieldEnum = (typeof CarreraScalarFieldEnum)[keyof typeof CarreraScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -2747,144 +2747,144 @@ export namespace Prisma {
    */
 
 
-  export type LaboratoriosWhereInput = {
-    AND?: LaboratoriosWhereInput | LaboratoriosWhereInput[]
-    OR?: LaboratoriosWhereInput[]
-    NOT?: LaboratoriosWhereInput | LaboratoriosWhereInput[]
-    id?: IntFilter<"Laboratorios"> | number
-    nombre?: StringFilter<"Laboratorios"> | string
+  export type LaboratorioWhereInput = {
+    AND?: LaboratorioWhereInput | LaboratorioWhereInput[]
+    OR?: LaboratorioWhereInput[]
+    NOT?: LaboratorioWhereInput | LaboratorioWhereInput[]
+    id?: IntFilter<"Laboratorio"> | number
+    nombre?: StringFilter<"Laboratorio"> | string
   }
 
-  export type LaboratoriosOrderByWithRelationInput = {
+  export type LaboratorioOrderByWithRelationInput = {
     id?: SortOrder
     nombre?: SortOrder
   }
 
-  export type LaboratoriosWhereUniqueInput = Prisma.AtLeast<{
+  export type LaboratorioWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: LaboratoriosWhereInput | LaboratoriosWhereInput[]
-    OR?: LaboratoriosWhereInput[]
-    NOT?: LaboratoriosWhereInput | LaboratoriosWhereInput[]
-    nombre?: StringFilter<"Laboratorios"> | string
+    AND?: LaboratorioWhereInput | LaboratorioWhereInput[]
+    OR?: LaboratorioWhereInput[]
+    NOT?: LaboratorioWhereInput | LaboratorioWhereInput[]
+    nombre?: StringFilter<"Laboratorio"> | string
   }, "id">
 
-  export type LaboratoriosOrderByWithAggregationInput = {
+  export type LaboratorioOrderByWithAggregationInput = {
     id?: SortOrder
     nombre?: SortOrder
-    _count?: LaboratoriosCountOrderByAggregateInput
-    _avg?: LaboratoriosAvgOrderByAggregateInput
-    _max?: LaboratoriosMaxOrderByAggregateInput
-    _min?: LaboratoriosMinOrderByAggregateInput
-    _sum?: LaboratoriosSumOrderByAggregateInput
+    _count?: LaboratorioCountOrderByAggregateInput
+    _avg?: LaboratorioAvgOrderByAggregateInput
+    _max?: LaboratorioMaxOrderByAggregateInput
+    _min?: LaboratorioMinOrderByAggregateInput
+    _sum?: LaboratorioSumOrderByAggregateInput
   }
 
-  export type LaboratoriosScalarWhereWithAggregatesInput = {
-    AND?: LaboratoriosScalarWhereWithAggregatesInput | LaboratoriosScalarWhereWithAggregatesInput[]
-    OR?: LaboratoriosScalarWhereWithAggregatesInput[]
-    NOT?: LaboratoriosScalarWhereWithAggregatesInput | LaboratoriosScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Laboratorios"> | number
-    nombre?: StringWithAggregatesFilter<"Laboratorios"> | string
+  export type LaboratorioScalarWhereWithAggregatesInput = {
+    AND?: LaboratorioScalarWhereWithAggregatesInput | LaboratorioScalarWhereWithAggregatesInput[]
+    OR?: LaboratorioScalarWhereWithAggregatesInput[]
+    NOT?: LaboratorioScalarWhereWithAggregatesInput | LaboratorioScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Laboratorio"> | number
+    nombre?: StringWithAggregatesFilter<"Laboratorio"> | string
   }
 
-  export type CarrerasWhereInput = {
-    AND?: CarrerasWhereInput | CarrerasWhereInput[]
-    OR?: CarrerasWhereInput[]
-    NOT?: CarrerasWhereInput | CarrerasWhereInput[]
-    id?: IntFilter<"Carreras"> | number
-    nombre?: StringFilter<"Carreras"> | string
+  export type CarreraWhereInput = {
+    AND?: CarreraWhereInput | CarreraWhereInput[]
+    OR?: CarreraWhereInput[]
+    NOT?: CarreraWhereInput | CarreraWhereInput[]
+    id?: IntFilter<"Carrera"> | number
+    nombre?: StringFilter<"Carrera"> | string
   }
 
-  export type CarrerasOrderByWithRelationInput = {
+  export type CarreraOrderByWithRelationInput = {
     id?: SortOrder
     nombre?: SortOrder
   }
 
-  export type CarrerasWhereUniqueInput = Prisma.AtLeast<{
+  export type CarreraWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    AND?: CarrerasWhereInput | CarrerasWhereInput[]
-    OR?: CarrerasWhereInput[]
-    NOT?: CarrerasWhereInput | CarrerasWhereInput[]
-    nombre?: StringFilter<"Carreras"> | string
+    AND?: CarreraWhereInput | CarreraWhereInput[]
+    OR?: CarreraWhereInput[]
+    NOT?: CarreraWhereInput | CarreraWhereInput[]
+    nombre?: StringFilter<"Carrera"> | string
   }, "id">
 
-  export type CarrerasOrderByWithAggregationInput = {
+  export type CarreraOrderByWithAggregationInput = {
     id?: SortOrder
     nombre?: SortOrder
-    _count?: CarrerasCountOrderByAggregateInput
-    _avg?: CarrerasAvgOrderByAggregateInput
-    _max?: CarrerasMaxOrderByAggregateInput
-    _min?: CarrerasMinOrderByAggregateInput
-    _sum?: CarrerasSumOrderByAggregateInput
+    _count?: CarreraCountOrderByAggregateInput
+    _avg?: CarreraAvgOrderByAggregateInput
+    _max?: CarreraMaxOrderByAggregateInput
+    _min?: CarreraMinOrderByAggregateInput
+    _sum?: CarreraSumOrderByAggregateInput
   }
 
-  export type CarrerasScalarWhereWithAggregatesInput = {
-    AND?: CarrerasScalarWhereWithAggregatesInput | CarrerasScalarWhereWithAggregatesInput[]
-    OR?: CarrerasScalarWhereWithAggregatesInput[]
-    NOT?: CarrerasScalarWhereWithAggregatesInput | CarrerasScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Carreras"> | number
-    nombre?: StringWithAggregatesFilter<"Carreras"> | string
+  export type CarreraScalarWhereWithAggregatesInput = {
+    AND?: CarreraScalarWhereWithAggregatesInput | CarreraScalarWhereWithAggregatesInput[]
+    OR?: CarreraScalarWhereWithAggregatesInput[]
+    NOT?: CarreraScalarWhereWithAggregatesInput | CarreraScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Carrera"> | number
+    nombre?: StringWithAggregatesFilter<"Carrera"> | string
   }
 
-  export type LaboratoriosCreateInput = {
+  export type LaboratorioCreateInput = {
     nombre: string
   }
 
-  export type LaboratoriosUncheckedCreateInput = {
+  export type LaboratorioUncheckedCreateInput = {
     id?: number
     nombre: string
   }
 
-  export type LaboratoriosUpdateInput = {
+  export type LaboratorioUpdateInput = {
     nombre?: StringFieldUpdateOperationsInput | string
   }
 
-  export type LaboratoriosUncheckedUpdateInput = {
+  export type LaboratorioUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nombre?: StringFieldUpdateOperationsInput | string
   }
 
-  export type LaboratoriosCreateManyInput = {
+  export type LaboratorioCreateManyInput = {
     id?: number
     nombre: string
   }
 
-  export type LaboratoriosUpdateManyMutationInput = {
+  export type LaboratorioUpdateManyMutationInput = {
     nombre?: StringFieldUpdateOperationsInput | string
   }
 
-  export type LaboratoriosUncheckedUpdateManyInput = {
+  export type LaboratorioUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nombre?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CarrerasCreateInput = {
+  export type CarreraCreateInput = {
     nombre: string
   }
 
-  export type CarrerasUncheckedCreateInput = {
+  export type CarreraUncheckedCreateInput = {
     id?: number
     nombre: string
   }
 
-  export type CarrerasUpdateInput = {
+  export type CarreraUpdateInput = {
     nombre?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CarrerasUncheckedUpdateInput = {
+  export type CarreraUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nombre?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CarrerasCreateManyInput = {
+  export type CarreraCreateManyInput = {
     id?: number
     nombre: string
   }
 
-  export type CarrerasUpdateManyMutationInput = {
+  export type CarreraUpdateManyMutationInput = {
     nombre?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CarrerasUncheckedUpdateManyInput = {
+  export type CarreraUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     nombre?: StringFieldUpdateOperationsInput | string
   }
@@ -2914,26 +2914,26 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type LaboratoriosCountOrderByAggregateInput = {
+  export type LaboratorioCountOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
   }
 
-  export type LaboratoriosAvgOrderByAggregateInput = {
+  export type LaboratorioAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type LaboratoriosMaxOrderByAggregateInput = {
-    id?: SortOrder
-    nombre?: SortOrder
-  }
-
-  export type LaboratoriosMinOrderByAggregateInput = {
+  export type LaboratorioMaxOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
   }
 
-  export type LaboratoriosSumOrderByAggregateInput = {
+  export type LaboratorioMinOrderByAggregateInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+  }
+
+  export type LaboratorioSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -2970,26 +2970,26 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type CarrerasCountOrderByAggregateInput = {
+  export type CarreraCountOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
   }
 
-  export type CarrerasAvgOrderByAggregateInput = {
+  export type CarreraAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type CarrerasMaxOrderByAggregateInput = {
-    id?: SortOrder
-    nombre?: SortOrder
-  }
-
-  export type CarrerasMinOrderByAggregateInput = {
+  export type CarreraMaxOrderByAggregateInput = {
     id?: SortOrder
     nombre?: SortOrder
   }
 
-  export type CarrerasSumOrderByAggregateInput = {
+  export type CarreraMinOrderByAggregateInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+  }
+
+  export type CarreraSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -3080,13 +3080,13 @@ export namespace Prisma {
    * Aliases for legacy arg types
    */
     /**
-     * @deprecated Use LaboratoriosDefaultArgs instead
+     * @deprecated Use LaboratorioDefaultArgs instead
      */
-    export type LaboratoriosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LaboratoriosDefaultArgs<ExtArgs>
+    export type LaboratorioArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = LaboratorioDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use CarrerasDefaultArgs instead
+     * @deprecated Use CarreraDefaultArgs instead
      */
-    export type CarrerasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CarrerasDefaultArgs<ExtArgs>
+    export type CarreraArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CarreraDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

@@ -34,3 +34,5 @@ for row in cursor:
 # Cerramos el cursor y la conexión
 cursor.close()
 conexion.close()
+
+
