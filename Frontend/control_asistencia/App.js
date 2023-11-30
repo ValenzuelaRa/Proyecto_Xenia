@@ -1,79 +1,82 @@
+"usa el cliente"
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView, Alert, Image } from 'react-native';
 import { Camera } from 'expo-camera';
 import { Picker } from '@react-native-picker/picker';
 import axios from 'axios';
+import styles from './components/styles';
 
 const App = () => {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [qrData, setQrData] = useState(null);
-  const [formData, setFormData] = useState({
+  const [tienePermiso, establecerPermiso] = useState(null);
+  const [datosQr, establecerDatosQr] = useState(null);
+  const [formularioDatos, establecerFormularioDatos] = useState({
     input1: 'Matricula',
     input2: 'Nombre',
     input3: 'Grupo',
     input4: 'Materia',
   });
-  const [carreras, setCarreras] = useState([]);
-  const [selectedCarrera, setSelectedCarrera] = useState(null);
-  const cameraRef = useRef(null);
+  const [carreras, establecerCarreras] = useState([]);
+  const [carreraSeleccionada, establecerCarreraSeleccionada] = useState(null);
+  const referenciaCamara = useRef(null);
 
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === 'granted');
+      console.log('Estado de permisos:', status);
+      establecerPermiso(status === 'granted');
     })();
   }, []);
-
+  
   useEffect(() => {
-    fetchCarreras();
+    obtenerCarreras();
   }, []);
 
-  const fetchCarreras = async () => {
+  const obtenerCarreras = async () => {
     try {
-      const response = await axios.get('http://192.168.100.15:3000/carrera');
-      setCarreras(response.data);
+      const respuesta = await axios.get('http://192.168.100.15:3000/carrera');
+      establecerCarreras(respuesta.data);
     } catch (error) {
       console.error('Error al obtener carreras:', error);
     }
   };
 
-  const handleBarCodeScanned = ({ type, data }) => {
-    setQrData(data);
+  const manejarEscaneoCodigoBarras = ({ type, data }) => {
+    establecerDatosQr(data);
   };
 
-  const handleRepeatScan = () => {
-    setQrData(null);
+  const manejarRepetirEscaneo = () => {
+    establecerDatosQr(null);
   };
 
-  const handleFocus = async () => {
-    if (cameraRef.current) {
-      await cameraRef.current.resumePreview();
+  const manejarEnfoque = async () => {
+    if (referenciaCamara.current) {
+      await referenciaCamara.current.resumePreview();
     }
   };
 
-  const handleInputChange = (name, value) => {
-    if (name === 'carrera') {
-      setSelectedCarrera(value);
+  const manejarCambioEntrada = (nombre, valor) => {
+    if (nombre === 'carrera') {
+      establecerCarreraSeleccionada(valor);
     } else {
-      setFormData({
-        ...formData,
-        [name]: value,
+      establecerFormularioDatos({
+        ...formularioDatos,
+        [nombre]: valor,
       });
     }
   };
 
-  const handleSubmit = async () => {
+  const manejarEnvio = async () => {
     try {
-      const response = await axios.post('http://192.168.100.15:3000/guardarInformacion', {
-        matricula: formData.input1,
-        nombre: formData.input2,
-        grupo: formData.input3,
-        materia: formData.input4,
-        carrera: selectedCarrera,
-        nombre_laboratorio: qrData,
+      const respuesta = await axios.post('http://192.168.100.15:3000/guardarInformacion', {
+        matricula: formularioDatos.input1,
+        nombre: formularioDatos.input2,
+        grupo: formularioDatos.input3,
+        materia: formularioDatos.input4,
+        carrera: carreraSeleccionada,
+        nombre_laboratorio: datosQr,
       });
 
-      if (response.data.success) {
+      if (respuesta.data.success) {
         Alert.alert('Formulario enviado correctamente');
       } else {
         Alert.alert('Error al enviar el formulario');
@@ -84,140 +87,84 @@ const App = () => {
     }
   }
 
-
-  if (hasPermission === null) {
+  if (tienePermiso === null) {
     return <View />;
   }
 
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
+  if (tienePermiso === false) {
+    return <Text>Sin acceso a la cámara</Text>;
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.formContainer}>
-        <Text style={styles.formTitle}>Formulario</Text>
+    <ScrollView contentContainerStyle={styles.contenedor}>
+      <View styles={styles.contenedorFormulario}>
+        <Image 
+          source={require('./assets/logo-ensenada.png')} // Ajusta la ruta según la ubicación de tu logo
+          style={styles.logo}
+        />
+        <Text style={styles.tituloFormulario}>Registro de Asistencia</Text>
         <TextInput
-          style={styles.input}
+          style={styles.entrada}
           placeholder="Matricula"
-          value={formData.input1}
-          onChangeText={(text) => handleInputChange('input1', text)}
+          value={formularioDatos.input1}
+          onChangeText={(texto) => manejarCambioEntrada('input1', texto)}
         />
         <TextInput
-          style={styles.input}
+          style={styles.entrada}
           placeholder="Nombre"
-          value={formData.input2}
-          onChangeText={(text) => handleInputChange('input2', text)}
+          value={formularioDatos.input2}
+          onChangeText={(texto) => manejarCambioEntrada('input2', texto)}
         />
         <TextInput
-          style={styles.input}
+          style={styles.entrada}
           placeholder="Grupo"
-          value={formData.input3}
-          onChangeText={(text) => handleInputChange('input3', text)}
+          value={formularioDatos.input3}
+          onChangeText={(texto) => manejarCambioEntrada('input3', texto)}
         />
         <TextInput
-          style={styles.input}
+          style={styles.entrada}
           placeholder="Materia"
-          value={formData.input4}
-          onChangeText={(text) => handleInputChange('input4', text)}
+          value={formularioDatos.input4}
+          onChangeText={(texto) => manejarCambioEntrada('input4', texto)}
         />
         <Picker
-  selectedValue={selectedCarrera}
-  onValueChange={(itemValue, itemIndex) => setSelectedCarrera(itemValue)}
->
-  <Picker.Item label="Selecciona una carrera" value={null} />
-  {carreras.map((carrera) => (
-    <Picker.Item key={carrera.id} label={carrera.nombre} value={carrera.id} />
-  ))}
-</Picker>
-        <View style={styles.cameraContainer}>
+          style={styles.selector}
+          selectedValue={carreraSeleccionada}
+          onValueChange={(valorItem, indiceItem) => establecerCarreraSeleccionada(valorItem)}
+        >
+          <Picker.Item label="Selecciona una carrera" value={null} />
+          {carreras.map((carrera) => (
+            <Picker.Item key={carrera.id} label={carrera.nombre} value={carrera.id} />
+          ))}
+        </Picker>
+
+        <View style={styles.contenedorCamara}>
           <Camera
-            style={styles.camera}
-            onBarCodeScanned={handleBarCodeScanned}
-            ref={cameraRef}
+            style={styles.camara}
+            onBarCodeScanned={manejarEscaneoCodigoBarras}
+            ref={referenciaCamara}
           >
-            <View style={styles.qrFrame} onTouchStart={handleFocus} />
+            <View style={styles.marcoQr} onTouchStart={manejarEnfoque} />
           </Camera>
         </View>
-        {qrData && (
-          <View style={styles.qrContainer}>
+        {datosQr && (
+          <View style={styles.contenedorQr}>
             <Text>Código QR leído:</Text>
             <TextInput
-              style={styles.qrInput}
-              value={qrData}
+              style={styles.entradaQr}
+              value={datosQr}
               editable={false}
             />
-            <TouchableOpacity onPress={handleRepeatScan} style={styles.button}>
+            <TouchableOpacity onPress={manejarRepetirEscaneo} style={styles.boton}>
               <Text>Repetir Escaneo</Text>
             </TouchableOpacity>
           </View>
         )}
-        <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-          <Text>Submit Form</Text>
+        <TouchableOpacity onPress={manejarEnvio} style={styles.boton}>
+          <Text>Enviar</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    paddingVertical: 20,
-  },
-  formContainer: {
-    padding: 20,
-    backgroundColor: '#fff',
-  },
-  formTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-  },
-  button: {
-    marginTop: 10,
-    padding: 10,
-    backgroundColor: 'blue',
-    borderRadius: 5,
-    alignItems: 'center',
-  },
-  qrContainer: {
-    alignItems: 'center',
-    padding: 20,
-  },
-  qrInput: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingLeft: 10,
-    width: '80%',
-    textAlign: 'center',
-  },
-  cameraContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'black',
-    height: 200, // Ajusta la altura según tu preferencia
-  },
-  camera: {
-    width: '100%',
-    height: '100%',
-  },
-  qrFrame: {
-    flex: 1,
-    borderWidth: 2,
-    borderColor: 'white',
-    backgroundColor: 'transparent',
-  },
-});
-
 export default App;
