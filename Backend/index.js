@@ -35,11 +35,10 @@ app.get('/carrera', async (req, res) => {
   }
 });
 
+// Obtener todos los registros
 app.get('/registro', async (req, res) => {
   try {
-    console.log('Recibida solicitud para /registro');
     const registros = await prisma.registro.findMany();
-    console.log('Registros recuperados:', registros);
     res.json(registros);
   } catch (error) {
     console.error('Error al obtener registros:', error);
@@ -71,72 +70,8 @@ app.post('/guardarInformacion', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
-// Eliminar un registro por ID
-app.delete('/registro/:id', async (req, res) => {
-  const { id } = req.params;
-  try {
-    await prisma.registro.delete({
-      where: {
-        id: parseInt(id),
-      },
-    });
-    res.json({ success: true });
-  } catch (error) {
-    console.error('Error al eliminar el registro:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-// Actualizar un registro por ID
-app.put('/registro/:id', async (req, res) => {
-  const { id } = req.params;
-  const { matricula, nombre, grupo, materia, carrera, nombre_laboratorio } = req.body;
-  try {
-    await prisma.registro.update({
-      where: {
-        id: parseInt(id),
-      },
-      data: {
-        matricula,
-        nombre,
-        grupo,
-        materia,
-        carrera: String(carrera), // Convertir a cadena
-        nombreLaboratorio: nombre_laboratorio,
-      },
-    });
-    res.json({ success: true });
-  } catch (error) {
-    console.error('Error al actualizar el registro:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-app.delete('/registro/:id', async (req, res) => {
-  const { id } = req.params;
-  try {
-    const registroEliminado = await prisma.registro.delete({
-      where: {
-        id: parseInt(id),
-      },
-    });
-
-    if (registroEliminado) {
-      console.log(`Registro con ID ${id} eliminado correctamente`);
-      res.json({ success: true });
-    } else {
-      console.error(`No se encontró el registro con ID ${id}`);
-      res.status(404).json({ error: 'Registro no encontrado' });
-    }
-  } catch (error) {
-    console.error('Error al eliminar el registro:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
 // Iniciar el servidor
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });

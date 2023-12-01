@@ -38,13 +38,13 @@ const Formulario = ({
         onChangeText={(texto) => manejarCambioEntrada('input4', texto)}
       />
       <Picker
-        style={styles.selector}  // Cambia 'Estilos.selector' a 'styles.selector'
+        style={styles.selector}
         selectedValue={carreraSeleccionada}
-        onValueChange={(valorItem, indiceItem) => establecerCarreraSeleccionada(valorItem)}
+        onValueChange={(valorItem) => establecerCarreraSeleccionada(valorItem)}
       >
         <Picker.Item label="Selecciona una carrera" value={null} />
         {carreras.map((carrera) => (
-          <Picker.Item key={carrera.id} label={carrera.nombre} value={carrera.id} />
+          <Picker.Item key={carrera.id} label={carrera.nombre} value={carrera.nombre} />
         ))}
       </Picker>
     </>

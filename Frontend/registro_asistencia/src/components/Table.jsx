@@ -1,4 +1,4 @@
-// components/Table.js
+"use client"
 import React, { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import axios from 'axios';
@@ -28,14 +28,20 @@ const Table = ({ registros, handleEliminarRegistro }) => {
   const handleEliminarRegistroRemoto = async (id) => {
     try {
       // Envía la solicitud para eliminar el registro en el servidor
-      await axios.delete(`http://192.168.100.15:3000/registro/${id}`);
-      // Actualiza los registros localmente después de eliminar en el servidor
-      handleEliminarRegistroLocal(id);
+      await axios.delete(`http://192.168.100.15:3001/registro/${id}`);
+      // Busca el registro con el id y elimínalo localmente
+      const registroAEliminar = registros.find((registro) => registro.id === id);
+      handleEliminarRegistroLocal(registroAEliminar);
     } catch (error) {
       console.error('Error al eliminar el registro:', error);
     }
   };
+
   return (
+    <div>
+    <div className="pagination-info">
+      Página {paginaActual} de {paginasTotales}
+    </div>
     <div className="table-container overflow-auto">
       <table className="min-w-full border border-gray-300">
         <thead className="bg-tec text-white">
@@ -72,7 +78,7 @@ const Table = ({ registros, handleEliminarRegistro }) => {
           ))}
         </tbody>
       </table>
-      {/* Botones de paginación */}
+      </div>
       <div className="flex justify-end mt-4">
         <button
           className="bg-gray-300 py-2 px-4 mr-2"

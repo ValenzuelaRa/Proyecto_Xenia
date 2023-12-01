@@ -35,7 +35,7 @@ const App = () => {
 
   const obtenerCarreras = async () => {
     try {
-      const respuesta = await axios.get('http://192.168.100.15:3000/carrera');
+      const respuesta = await axios.get('http://192.168.100.15:3001/carrera');
       establecerCarreras(respuesta.data);
     } catch (error) {
       console.error('Error al obtener carreras:', error);
@@ -58,18 +58,19 @@ const App = () => {
 
   const manejarCambioEntrada = (nombre, valor) => {
     if (nombre === 'carrera') {
-      establecerCarreraSeleccionada(valor);
+      establecerCarreraSeleccionada(valor.id); // Asumiendo que 'valor' es el objeto de carrera
     } else {
       establecerFormularioDatos({
         ...formularioDatos,
         [nombre]: valor,
+        carrera: valor.id,
       });
     }
   };
 
   const manejarEnvio = async () => {
     try {
-      const respuesta = await axios.post('http://192.168.100.15:3000/guardarInformacion', {
+      const respuesta = await axios.post('http://192.168.100.15:3001/guardarInformacion', {
         matricula: formularioDatos.input1,
         nombre: formularioDatos.input2,
         grupo: formularioDatos.input3,
