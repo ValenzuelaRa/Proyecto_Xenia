@@ -42,10 +42,13 @@ const styles = StyleSheet.create({
   boton: {
     marginTop: 10,
     padding: 10,
-    backgroundColor: '#114c5f',
+    backgroundColor: '#11366A',
     borderRadius: 5,
     alignItems: 'center',
     width: '100%',
+  },
+  text: {
+    color: 'white'
   },
   contenedorQr: {
     alignItems: 'center',

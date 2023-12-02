@@ -1,7 +1,6 @@
 // schema.prisma
 generator client {
     provider = "prisma-client-js"
-    // Elimina la línea previewFeatures o usa una función de vista previa válida
 }
 
 datasource db {

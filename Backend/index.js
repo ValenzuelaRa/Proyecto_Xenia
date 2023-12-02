@@ -70,6 +70,22 @@ app.post('/guardarInformacion', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+app.delete('/registro', async (req, res) => {
+  try {
+    console.log('Eliminando todos los registros');
+
+    // Elimina todos los registros de la base de datos
+    await prisma.registro.deleteMany({});
+
+    console.log('Todos los registros eliminados correctamente');
+    res.status(200).json({ success: true });
+  } catch (error) {
+    console.error('Error al eliminar todos los registros:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 // Iniciar el servidor
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

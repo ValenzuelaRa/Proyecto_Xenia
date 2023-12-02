@@ -12,10 +12,10 @@ const App = () => {
   const [tienePermiso, establecerPermiso] = useState(null);
   const [datosQr, establecerDatosQr] = useState(null);
   const [formularioDatos, establecerFormularioDatos] = useState({
-    input1: 'Matricula',
-    input2: 'Nombre',
-    input3: 'Grupo',
-    input4: 'Materia',
+    input1: '',
+    input2: '',
+    input3: '',
+    input4: '',
   });
   const [carreras, establecerCarreras] = useState([]);
   const [carreraSeleccionada, establecerCarreraSeleccionada] = useState(null);
@@ -35,7 +35,7 @@ const App = () => {
 
   const obtenerCarreras = async () => {
     try {
-      const respuesta = await axios.get('http://192.168.100.15:3001/carrera');
+      const respuesta = await axios.get('http://140.10.3.28:3001/carrera');
       establecerCarreras(respuesta.data);
     } catch (error) {
       console.error('Error al obtener carreras:', error);
@@ -46,9 +46,6 @@ const App = () => {
     establecerDatosQr(data);
   };
 
-  const manejarRepetirEscaneo = () => {
-    establecerDatosQr(null);
-  };
 
   const manejarEnfoque = async () => {
     if (referenciaCamara.current) {
@@ -70,7 +67,7 @@ const App = () => {
 
   const manejarEnvio = async () => {
     try {
-      const respuesta = await axios.post('http://192.168.100.15:3001/guardarInformacion', {
+      const respuesta = await axios.post('http://140.10.3.28:3001/guardarInformacion', {
         matricula: formularioDatos.input1,
         nombre: formularioDatos.input2,
         grupo: formularioDatos.input3,
@@ -122,13 +119,10 @@ const App = () => {
           <View style={styles.contenedorQr}>
             <Text>Código QR leído:</Text>
             <TextInput style={styles.entradaQr} value={datosQr} editable={false} />
-            <TouchableOpacity onPress={manejarRepetirEscaneo} style={styles.boton}>
-              <Text>Repetir Escaneo</Text>
-            </TouchableOpacity>
             </View>
         )}
         <TouchableOpacity onPress={manejarEnvio} style={styles.boton}>
-          <Text>Enviar</Text>
+          <Text style={styles.text}>Enviar</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
