@@ -1,66 +1,112 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faSync, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 
-const Table = ({ registros, handleEliminarRegistro, handleEditarRegistro, handleActualizarRegistros }) => {
+const Table = ({ registros, handleActualizarRegistros }) => {
   const registrosPorPagina = 10;
-  const [filtro, setFiltro] = useState('');
-
+  const [filtroLaboratorio, setFiltroLaboratorio] = useState(null);
   const [paginaActual, setPaginaActual] = useState(1);
   const mostrarPaginacion = registros.length > registrosPorPagina;
-  const indiceInicial = (paginaActual - 1) * registrosPorPagina;
-  const indiceFinal = indiceInicial + registrosPorPagina;
-  const registrosActuales = registros.slice(indiceInicial, indiceFinal);
   const paginasTotales = Math.ceil(registros.length / registrosPorPagina);
+  const laboratorios = ['LC1', 'LC2', 'LC3', 'LC4', 'LC5', 'LC6', 'LR'];
+  const [fechaSeleccionada, setFechaSeleccionada] = useState('');
 
-  
   const cambiarPagina = (nuevaPagina) => {
     if (nuevaPagina > 0 && nuevaPagina <= paginasTotales) {
       setPaginaActual(nuevaPagina);
     }
   };
 
-  const handleLimpiarRegistros = async () => {
-    const confirmacion = window.confirm('¿Estás seguro de que deseas limpiar todos los registros?');
-    if (confirmacion) {
-      try {
-        // Lógica para eliminar todos los registros del servidor
-        await axios.delete('http://140.10.3.28:3001/registros');
-        // Actualizar el estado local de registros
-        handleActualizarRegistros([]);
-      } catch (error) {
-        console.error('Error al limpiar registros:', error);
-      }
+  const handleFiltrarPorFecha = async () => {
+    try {
+      // Realizar la solicitud al backend para obtener registros filtrados por fecha
+      const response = await axios.get(`http://192.168.100.15:3001/registrosPorFecha/${fechaSeleccionada}`);
+      const registrosFiltrados = response.data;
+
+      // Actualizar el estado local de registros con los registros filtrados
+      handleActualizarRegistros(registrosFiltrados);
+    } catch (error) {
+      console.error('Error al filtrar registros por fecha:', error);
     }
   };
-  
-  
+
+  const handleFiltrarPorLaboratorio = (nombreLaboratorio) => {
+    setFiltroLaboratorio(nombreLaboratorio === 'Todos' ? null : nombreLaboratorio);
+  };
+
   const registrosFiltrados = registros.filter((registro) => {
-    return (
-      registro.matricula.toLowerCase().includes(filtro.toLowerCase()) ||
-      registro.nombre.toLowerCase().includes(filtro.toLowerCase()) ||
-      registro.grupo.toLowerCase().includes(filtro.toLowerCase()) ||
-      registro.materia.toLowerCase().includes(filtro.toLowerCase()) ||
-      registro.carrera.toLowerCase().includes(filtro.toLowerCase()) ||
-      registro.nombreLaboratorio.toLowerCase().includes(filtro.toLowerCase()) ||
-      registro.createdAt.toLowerCase().includes(filtro.toLowerCase())
-    );
+    const nombreLaboratorio = registro.nombreLaboratorio;
+
+    const laboratorioMapping = {
+      'Laboratorio de Computo 1': 'LC1',
+      'Laboratorio de Computo 2': 'LC2',
+      'Laboratorio de Computo 3': 'LC3',
+      'Laboratorio de Computo 4': 'LC4',
+      'Laboratorio de Computo 5': 'LC5',
+      'Laboratorio de Computo 6': 'LC6',
+      'Laboratorio de Redes': 'LR',
+    };
+
+    if (filtroLaboratorio === null || nombreLaboratorio.includes(filtroLaboratorio)) {
+      return true;
+    }
+    return false;
   });
-  
-  const registrosMostrados = registrosFiltrados.slice(indiceInicial, indiceFinal);
-  
+
   return (
     <div>
-      <div className="flex justify-between mb-4">
-        <div>
-          
-          <input
-            type="text"
-            placeholder="Buscar..."
-            value={filtro}
-            onChange={(e) => setFiltro(e.target.value)}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          />
+      <div className="flex justify-between mb-4 items-center">
+        <div className="flex items-center">
+          <select
+            value={filtroLaboratorio || 'Todos'}
+            onChange={(e) => handleFiltrarPorLaboratorio(e.target.value)}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          >
+            <option value="Todos">Todos</option>
+            {laboratorios.map((lab, index) => (
+              <option key={index} value={lab}>
+                {lab}
+              </option>
+            ))}
+          </select>
+          <button
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            onClick={() => console.log('Buscar clicado')}
+          >
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
         </div>
+        <div>
+          <button
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 mr-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            onClick={() => console.log('Actualizar tabla clicado')}
+          >
+            <FontAwesomeIcon icon={faSync} />
+          </button>
+          <button
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            onClick={() => console.log('Generar PDF clicado')}
+          >
+            <FontAwesomeIcon icon={faFilePdf} />
+          </button>
+        </div>
+        <div className="flex items-center">
+        {/* ... (otros elementos) */}
+        <input
+          type="date"
+          value={fechaSeleccionada}
+          onChange={(e) => setFechaSeleccionada(e.target.value)}
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        />
+        <button
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ml-2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          onClick={handleFiltrarPorFecha}
+        >
+          Filtrar por Fecha
+        </button>
+      </div>
+        
         {mostrarPaginacion && (
           <div className="pagination-info">
             Página {paginaActual} de {paginasTotales}
@@ -69,12 +115,7 @@ const Table = ({ registros, handleEliminarRegistro, handleEditarRegistro, handle
       </div>
 
       <div className="table-container overflow-auto">
-        <table 
-            registros={registros}
-            handleEliminarRegistro={handleEliminarRegistro}
-            handleEditarRegistro={handleEditarRegistro}
-            handleActualizarRegistros={handleActualizarRegistros}
-        className="min-w-full border border-gray-300">
+        <table className="min-w-full border border-gray-300">
           <thead className="bg-tec text-white">
             <tr>
               <th className="py-2 px-4 border border-black text-center">ID</th>
@@ -88,7 +129,7 @@ const Table = ({ registros, handleEliminarRegistro, handleEditarRegistro, handle
             </tr>
           </thead>
           <tbody>
-          {registrosMostrados.map((registro) => (
+            {registrosFiltrados.map((registro) => (
               <tr key={registro.id}>
                 <td className="py-2 px-4 border border-black text-center text-xs">{registro.id}</td>
                 <td className="py-2 px-4 border border-black text-center text-xs">{registro.matricula}</td>
@@ -104,12 +145,6 @@ const Table = ({ registros, handleEliminarRegistro, handleEditarRegistro, handle
         </table>
       </div>
       <div className="flex justify-end mt-4">
-        <button
-          className="bg-tec hover:bg-blue-500 text-white font-bold py-2 px-4 rounded mr-2"
-          onClick={() => handleLimpiarRegistros()}
-        >
-          Limpiar Registros
-        </button>
         {mostrarPaginacion && (
           <>
             <button
@@ -120,7 +155,7 @@ const Table = ({ registros, handleEliminarRegistro, handleEditarRegistro, handle
               Anterior
             </button>
             <button
-              className="bg-tec hover:bg-blue-500 text-white font-bold py-2 px-4 rounded mr-2"
+              className="bg-tec hover.bg-blue-500 text-white font-bold py-2 px-4 rounded mr-2"
               onClick={() => cambiarPagina(paginaActual + 1)}
               disabled={paginaActual === paginasTotales}
             >

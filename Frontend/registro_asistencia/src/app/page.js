@@ -10,7 +10,7 @@ const Page = () => {
   useEffect(() => {
     const fetchRegistros = async () => {
       try {
-        const response = await axios.get('http://140.10.3.28:3001/registro');
+        const response = await axios.get('http://192.168.100.15:3001/registro');
         setRegistros(response.data);
       } catch (error) {
         console.error('Error al obtener registros:', error);

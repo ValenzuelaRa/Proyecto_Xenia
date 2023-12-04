@@ -14,10 +14,11 @@ const Formulario = ({
   return (
     <>
       <TextInput
-        style={styles.entrada}
-        placeholder="Matricula"
-        value={formularioDatos.input1}
-        onChangeText={(texto) => manejarCambioEntrada('input1', texto)}
+         style={styles.entrada}
+         placeholder="Matricula"
+         value={formularioDatos.input1}
+         onChangeText={(texto) => manejarCambioEntrada('input1', texto)}
+         keyboardType="numeric" 
       />
       <TextInput
         style={styles.entrada}
@@ -26,10 +27,11 @@ const Formulario = ({
         onChangeText={(texto) => manejarCambioEntrada('input2', texto)}
       />
       <TextInput
-        style={styles.entrada}
-        placeholder="Grupo"
-        value={formularioDatos.input3}
-        onChangeText={(texto) => manejarCambioEntrada('input3', texto)}
+  style={styles.entrada}
+  placeholder="Grupo"
+  value={formularioDatos.input3}
+  onChangeText={(texto) => manejarCambioEntrada('input3', texto.toUpperCase())}
+  maxLength={3}  
       />
       <TextInput
         style={styles.entrada}

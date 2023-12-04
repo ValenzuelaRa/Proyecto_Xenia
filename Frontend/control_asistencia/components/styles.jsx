@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 10,
   },
   tituloFormulario: {
     fontSize: 20,
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
   },
   entrada: {
     height: 40,
-    borderColor: 'gray',
+    borderColor: 'black',
     marginBottom: 10,
     borderRadius: 10,
     borderBottomWidth: 1,
@@ -51,17 +52,21 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   contenedorQr: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
   },
   entradaQr: {
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
+    borderColor: 'black',
     marginBottom: 10,
+    borderRadius: 10,
+    borderBottomWidth: 1,
     paddingLeft: 10,
-    width: '80%',
-    textAlign: 'center',
+    width: '100%',
+    color: 'black',
+    textAlign: 'center'
   },
   contenedorCamara: {
     justifyContent: 'flex-end', // Alinea la cámara en la parte inferior
@@ -76,12 +81,7 @@ const styles = StyleSheet.create({
     width: '100%',
     aspectRatio: 1, // Asegura una relación de aspecto cuadrada
     borderWidth: 2,
-    borderColor: 'white',
-  },
-  marcoQr: {
-    borderWidth: 2,
-    borderColor: 'white',
-    backgroundColor: 'transparent',
+    borderColor: 'black',
   },
 });
 

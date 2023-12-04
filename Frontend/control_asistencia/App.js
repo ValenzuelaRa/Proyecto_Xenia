@@ -20,6 +20,8 @@ const App = () => {
   const [carreras, establecerCarreras] = useState([]);
   const [carreraSeleccionada, establecerCarreraSeleccionada] = useState(null);
   const referenciaCamara = useRef(null);
+  const [mostrarCamara, setMostrarCamara] = useState(true);
+  const [mostrarEscaneoQR, setMostrarEscaneoQR] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -35,15 +37,11 @@ const App = () => {
 
   const obtenerCarreras = async () => {
     try {
-      const respuesta = await axios.get('http://140.10.3.28:3001/carrera');
+      const respuesta = await axios.get('http://192.168.100.15:3001/carrera');
       establecerCarreras(respuesta.data);
     } catch (error) {
       console.error('Error al obtener carreras:', error);
     }
-  };
-
-  const manejarEscaneoCodigoBarras = ({ type, data }) => {
-    establecerDatosQr(data);
   };
 
 
@@ -65,9 +63,17 @@ const App = () => {
     }
   };
 
+  const manejarEscaneoCodigoBarras = ({ type, data }) => {
+    establecerDatosQr(data);
+
+    // Ocultar la cámara y el escáner después de escanear
+    setMostrarCamara(false);
+    setMostrarEscaneoQR(false);
+  };
+
   const manejarEnvio = async () => {
     try {
-      const respuesta = await axios.post('http://140.10.3.28:3001/guardarInformacion', {
+      const respuesta = await axios.post('http://192.168.100.15:3001/guardarInformacion', {
         matricula: formularioDatos.input1,
         nombre: formularioDatos.input2,
         grupo: formularioDatos.input3,
@@ -114,6 +120,7 @@ const App = () => {
           referenciaCamara={referenciaCamara}
           manejarEscaneoCodigoBarras={manejarEscaneoCodigoBarras}
           manejarEnfoque={manejarEnfoque}
+          visible={mostrarEscaneoQR}
         />
         {datosQr && (
           <View style={styles.contenedorQr}>

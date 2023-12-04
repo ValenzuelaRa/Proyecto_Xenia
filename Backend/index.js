@@ -60,6 +60,7 @@ app.post('/guardarInformacion', async (req, res) => {
         materia,
         carrera: String(carrera), // Convertir a cadena
         nombreLaboratorio: nombre_laboratorio,
+        fechaRegistroWeb: new Date(), // Agregar la fecha actual
       },
     });
 
@@ -70,6 +71,7 @@ app.post('/guardarInformacion', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 app.delete('/registro', async (req, res) => {
   try {
@@ -85,6 +87,26 @@ app.delete('/registro', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+// Agregar una nueva ruta para obtener registros filtrados por fecha
+app.get('/registrosPorFecha/:fecha', async (req, res) => {
+  try {
+    const { fecha } = req.params;
+
+    // Obtener registros filtrados por fecha
+    const registros = await prisma.registro.findMany({
+      where: {
+        fechaRegistroWeb: fecha,
+      },
+    });
+
+    res.json(registros);
+  } catch (error) {
+    console.error('Error al obtener registros por fecha:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 3001;

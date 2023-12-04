@@ -23,7 +23,9 @@ model Registro {
   nombre            String
   grupo             String
   materia           String
-  carrera           String   // Cambiado a String en lugar de Int
+  carrera           String
   nombreLaboratorio String
   createdAt         DateTime  @default(now())
+  fechaRegistroWeb           DateTime  // Nueva columna para la fecha
 }
+
