@@ -1,6 +1,6 @@
 // schema.prisma
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -17,6 +17,7 @@ model Carrera {
   id    Int    @id @default(autoincrement())
   nombre String
 }
+
 model Registro {
   id                Int       @id @default(autoincrement())
   matricula         String
@@ -25,7 +26,6 @@ model Registro {
   materia           String
   carrera           String
   nombreLaboratorio String
-  createdAt         DateTime  @default(now())
-  fechaRegistroWeb           DateTime  // Nueva columna para la fecha
+  fechaRegistroApp  DateTime  @default(now())
+  fechaRegistroWeb  DateTime  // Nueva columna para la fecha
 }
-
